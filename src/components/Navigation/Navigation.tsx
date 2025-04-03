@@ -17,8 +17,14 @@ import Image from "next/image"
 
 const components: { title: string; href: string; description: string }[] = [
   {
+    title: "Все вакансии",
+    href: "/vacancy/all",
+    description:
+      "Все вакансии",
+  },
+  {
     title: "Новые вакансии",
-    href: "/docs/primitives/alert-dialog",
+    href: "/vacancy/new",
     description:
       "Вакансии опубликованые в течении текушего месяца.",
   },
@@ -59,7 +65,7 @@ export function Navigation() {
       <NavigationMenuList >
         <NavigationMenuItem>
           <NavigationMenuTrigger>Etalones S&B</NavigationMenuTrigger>
-          <NavigationMenuContent className="bg-primary tetxt-white">
+          <NavigationMenuContent className="tetxt-white">
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
                 <NavigationMenuLink asChild className="text-white">

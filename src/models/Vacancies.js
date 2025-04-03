@@ -1,6 +1,7 @@
 import { Schema, model, models } from "mongoose";
 import {VacancyImages} from './VacancyImages';
 import {HomeImages} from './HomeImages';
+import {Manager} from './Manager';
 const VacanciesSchema = new Schema({
     image: {
         type: Schema.Types.ObjectId,

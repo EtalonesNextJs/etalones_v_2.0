@@ -110,6 +110,9 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* мои стили */
+  --color-primary: #AF0707;
 }
 
 @layer base {
@@ -118,5 +121,6 @@
   }
   body {
     @apply bg-background text-foreground;
+
   }
 }
