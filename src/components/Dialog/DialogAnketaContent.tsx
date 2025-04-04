@@ -11,7 +11,6 @@ import { Label } from "@/components/ui/label";
 import { Button } from "../ui/button";
 import { DialogHeader, DialogFooter } from "../ui/dialog";
 import { Input } from "../ui/input";
-import { MultiSelectExample } from "../Multiselect/Ex";
 
 export default function DialogAnketaContent() {
   return (
@@ -53,7 +52,8 @@ export default function DialogAnketaContent() {
 </Select>
 
         </div>
-        <div className="flex flex-col items-start gap-1">
+        
+        {/* <div className="flex flex-col items-start gap-1">
           <Label htmlFor="username" className="text-left">
             Документы: <span className="font-light text-sm text-left text-gray-600">*Документы разрешающие работу в Европе.</span>
           </Label>
@@ -69,7 +69,7 @@ export default function DialogAnketaContent() {
   </SelectContent>
 </Select>
 
-        </div>
+        </div> */}
       </div><DialogFooter>
         <Button className="bg-green-800" type="submit">Отправить</Button>
       </DialogFooter></>

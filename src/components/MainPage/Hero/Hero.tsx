@@ -1,4 +1,5 @@
 'use client';
+import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import CountUp from 'react-countup';
@@ -24,14 +25,13 @@ const Home: React.FC = () => {
 
   return (
     <div
-      className="min-h-[500px]"
-      style={{ backgroundImage: 'url(/main/primary.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+      className="min-h-[500px] flex justify-center items-center"
+      style={{ backgroundImage: 'url(/main/primary_sh.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-      <div className="overlay bg-opacity-60"></div>
       <div className="text-center text-neutral-content">
         <div className="max-w-md">
-          <h1 className="mb-10 text-5xl font-bold">Ищете работу в Европе?</h1>
-          <p className="mb-5 text-xl text-shadow-xl">
+          <h1 className="mb-10 text-5xl text-white font-bold">Ищете работу в Европе?</h1>
+          <p className="mb-5 text-xl text-white text-shadow-xl">
             На данный момент открыто <strong>
               {vacancyCount !== null ? <CountUp end={vacancyCount} duration={4} /> : '...'}
             </strong> вакансий,<br />
@@ -40,8 +40,8 @@ const Home: React.FC = () => {
             </strong> свободных мест
           </p>
 
-          <Link href="/vacancy" className="btn bg-gradient-red text-white">
-            Смотреть предложения
+          <Link href="/vacancy/all" className="btn bg-gradient-red text-white">
+           <Button>Смотреть предложения</Button>
           </Link>
         </div>
       </div>

@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { AspectRatio } from "@radix-ui/react-aspect-ratio"
-import { HandCoins, MapPin, MapPinned } from "lucide-react"
+import { HandCoins, Home, MapPin, MapPinned } from "lucide-react"
 import { Drawer, DrawerTrigger } from "@/components/ui/drawer"
 import DrawerContentComponent from "@/components/Drawer/DrawerContentComponent"
 import { Dialog } from "@/components/ui/dialog"
@@ -37,9 +37,28 @@ export default function VacancyCard( { vacancy }: { vacancy: any }) {
           <HandCoins  />
           <p className="text-xl">{vacancy?.salary}</p>
         </div>
-        <p>{vacancy?.home_descr}</p>
-        <p>{vacancy?.skills}</p>
-        <p>{vacancy?.experience}</p>
+        <div className="flex items-center gap-2">
+          <Home/>
+        <p>{vacancy?.homePrice}</p>
+        </div>
+        {vacancy?.drivePermis?.length > 0 && (
+  <p>Требуется водительское удостоверение категории: {vacancy.drivePermis.join('; ')}</p>
+)}
+      {vacancy?.documents?.length > 0 && (
+  <p>
+    Документы:{" "}
+    {vacancy.documents
+      .join('; ')
+      .split('; ')
+      .map((doc:any, index: any) => (
+        <span key={index}>
+          {doc}
+          <br />
+        </span>
+      ))}
+  </p>
+)}
+
       </CardContent>
       <CardFooter>
       <DrawerTrigger asChild>
@@ -49,6 +68,5 @@ export default function VacancyCard( { vacancy }: { vacancy: any }) {
       </CardFooter>
     </Card>
     </Drawer>
-    <DialogAnketaContent/>
-    </Dialog>
+     </Dialog>
 )}
