@@ -15,17 +15,18 @@ import { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { foods, travelMenuItems } from "./config";
+import Image from "next/image";
 
 export const NavMenu = (props: NavigationMenuProps) => (
     <NavigationMenu {...props}>
-      <NavigationMenuList className="gap-0 space-x-0 text-sm">
+      <NavigationMenuList className="gap-0 space-x-0 text-sm text-white">
         <NavigationMenuItem>
-          <Button variant="ghost" className="text-[15px] font-normal" asChild>
-            <Link href="#">Главная</Link>
+          <Button variant="ghost" className="text-xl font-normal" asChild>
+            <Link href="/">Главная</Link>
           </Button>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-[15px] font-normal">
+          <NavigationMenuTrigger className="text-xl font-normal">
             Вакансии
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -44,7 +45,7 @@ export const NavMenu = (props: NavigationMenuProps) => (
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-[15px] font-normal">
+          <NavigationMenuTrigger className="text-xl font-normal">
             Полезно
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -82,8 +83,8 @@ const ListItem = React.forwardRef<
           {...props}
         >
           <props.icon className="mb-4 h-6 w-6" />
-          <div className="text-sm font-semibold leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="text-md font-semibold leading-none">{title}</div>
+          <p className="line-clamp-2 text-md leading-snug text-muted-foreground">
             {children}
           </p>
         </Link>

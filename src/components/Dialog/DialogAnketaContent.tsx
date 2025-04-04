@@ -1,4 +1,4 @@
-import { DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { DialogContent, DialogTitle, DialogDescription, DialogClose } from "@/components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -11,8 +11,9 @@ import { Label } from "@/components/ui/label";
 import { Button } from "../ui/button";
 import { DialogHeader, DialogFooter } from "../ui/dialog";
 import { Input } from "../ui/input";
+import MultiSelect from "../Multiselect/Multiselect";
 
-export default function DialogAnketaContent() {
+export default function DialogAnketaContent({profession}:any) {
   return (
     <><DialogHeader>
       <DialogTitle>Отправить заявку</DialogTitle>
@@ -34,7 +35,7 @@ export default function DialogAnketaContent() {
         </div>
         <div className="flex flex-col items-start gap-1">
           <Label htmlFor="username" className="text-left">
-            Опыт работы: <span className="font-light text-sm text-left text-gray-600">Опыт работы по профессии.</span>
+            Опыт работы: <span className="font-light text-sm text-left text-gray-600">Опыт работы по профессии {profession}</span>
           </Label>
           <Select>
   <SelectTrigger className="w-full">
@@ -52,26 +53,20 @@ export default function DialogAnketaContent() {
 </Select>
 
         </div>
-        
-        {/* <div className="flex flex-col items-start gap-1">
-          <Label htmlFor="username" className="text-left">
-            Документы: <span className="font-light text-sm text-left text-gray-600">*Документы разрешающие работу в Европе.</span>
+        <div className="flex flex-col items-start gap-1">
+        <Label htmlFor="documents" className="text-left">
+            Документы: <span className="font-light text-sm text-left text-gray-600">*Разрешающие работу в Европе.</span>
           </Label>
-          <Select multiple>
-  <SelectTrigger className="w-full">
-    <SelectValue placeholder="Выберите документы" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectItem value="Паспорт">Паспорт</SelectItem>
-    <SelectItem value="Виза">Виза</SelectItem>
-    <SelectItem value="Песель">Песель</SelectItem>
-    <SelectItem value="Карта побыта">Карта побыта</SelectItem>
-  </SelectContent>
-</Select>
-
-        </div> */}
+        <MultiSelect/>
+        </div>
+       
       </div><DialogFooter>
-        <Button className="bg-green-800" type="submit">Отправить</Button>
+      <DialogClose asChild>
+            <Button type="button" className="bg-red-800 hover:bg-red-700 text-white transition-all duration-200 ease-in-out">
+              Закрыть
+            </Button>
+          </DialogClose>        
+          <Button className="bg-[#116948]" type="submit">Отправить</Button>
       </DialogFooter></>
   )
   }

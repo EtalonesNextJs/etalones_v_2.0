@@ -7,7 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 const NavbarPage = () => {
   return (
     <div className=" bg-muted">
-      <nav className="h-16 bg-primary border-b">
+      <nav className="h-16 bg-[#870B0B] border-b">
         <div className="h-full flex items-center justify-between max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-8">
             <Logo />
@@ -17,9 +17,9 @@ const NavbarPage = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <Button>
+            {/* <Button>
               Заполнить заявку <ArrowUpRight />
-            </Button>
+            </Button> */}
 
             {/* Mobile Menu */}
             <div className="md:hidden">

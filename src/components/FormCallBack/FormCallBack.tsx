@@ -159,11 +159,11 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   };
   
     return (
-        <div className="container mx-auto px-10 py-5 bg-secondary">
+        <div className=" px-10 py-5 bg-secondary">
             <div className="w-full">
                 <h3 className="text-2xl">Оставьте свой номер телефона и мы сразу свяжемся с Вами.</h3>
                 <p>Назначьте время разговора с нами и мы поможем Вам выбрать вакансию и ответим на Ваши вопросы.</p>
-                <form onSubmit={handleSubmit} className="grid grid-cols-4 gap-4 w-full items-center">
+                <form onSubmit={handleSubmit} className="grid md:grid-cols-4 gap-4 w-full items-center">
                     <Input 
                         className="input input-bordered" 
                         placeholder="Имя" 
@@ -182,14 +182,14 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                     
                     <Select  
                         name="time"
-                        value={formData.time}
+                        // value={formData.time}
                     >
                        <SelectTrigger className="w-full">
         <SelectValue placeholder="Время звонка" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
+          <SelectLabel>Время</SelectLabel>
           <SelectItem value="8:00-10:00">8:00-10:00</SelectItem>
           <SelectItem value="10:00-12:00">10:00-12:00</SelectItem>
           <SelectItem value="12:00-14:00">12:00-14:00</SelectItem>

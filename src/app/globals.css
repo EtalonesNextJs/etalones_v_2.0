@@ -52,6 +52,10 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.4472 0.257 27.72);
+  --lux-red: #870B0B;
+  --lux-green: #116948;
+  --lux-orange: #B83C1D;
+  --lux-yellow: #DE9433;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -113,6 +117,10 @@
 
   /* мои стили */
   --color-primary: #AF0707;
+  --color-lux-red: #870B0B;
+  --color-green-blue: #116948;
+  --color-orange: #B83C1D;
+  --color-yellow: #DE9433;
 }
 
 @layer base {

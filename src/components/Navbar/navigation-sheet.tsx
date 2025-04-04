@@ -4,7 +4,7 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import { foods, travelMenuItems } from "./config";
 import { Logo } from "./logo";
-
+import Image from "next/image";
 export const NavigationSheet = () => {
   return (
     <Sheet>
@@ -13,11 +13,13 @@ export const NavigationSheet = () => {
           <Menu />
         </Button>
       </SheetTrigger>
-      <SheetContent>
-        <Logo />
+      <SheetContent className="bg-[#870B0B] text-white">
+        {/* <Logo /> */}
 
+        <Link href="/">
+          <Image src="/main/logoWhite.png" alt={""} width={150} height={150} className="m-5 mb-0" />
+          </Link>
         <div className=" text-base space-y-4 px-4">
-          <Link href="/">Главная</Link>
 
           <div>
             <div className="font-bold">Вакансии</div>
@@ -25,7 +27,7 @@ export const NavigationSheet = () => {
               {foods.map((foodItem) => (
                 <li key={foodItem.title}>
                   <Link href="#" className="flex items-center gap-2">
-                    <foodItem.icon className="h-5 w-5 mr-2 text-muted-foreground" />
+                    <foodItem.icon className="h-7 w-7 mr-2 text-[#DE9433]" />
                     {foodItem.title}
                   </Link>
                 </li>

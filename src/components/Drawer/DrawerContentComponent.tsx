@@ -139,7 +139,7 @@ export default function DrawerContentComponent({ vacancy }: { vacancy: any }) {
     </Button>
   </DialogTrigger>
   <DialogContent className="sm:max-w-[425px]">
-  <DialogAnketaContent />
+  <DialogAnketaContent profession={vacancy?.title} />
       </DialogContent>
 </Dialog>
 

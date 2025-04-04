@@ -13,13 +13,12 @@ import { HandCoins, Home, MapPin, MapPinned } from "lucide-react"
 import { Drawer, DrawerTrigger } from "@/components/ui/drawer"
 import DrawerContentComponent from "@/components/Drawer/DrawerContentComponent"
 import { Dialog } from "@/components/ui/dialog"
-import DialogAnketaContent from "@/components/Dialog/DialogAnketaContent"
 export default function VacancyCard( { vacancy }: { vacancy: any }) {
   return (
     <Dialog>
     <Drawer>
-    <Card className="w-full max-w-[400px] ">
-      <AspectRatio ratio={16 / 9} className="box-content">
+    <Card className="w-full max-w-[400px]  ">
+      <AspectRatio ratio={16 / 9} >
       <Image src={vacancy?.imageFB || ''} alt={"Vacancy"} width={400} height={200} />
       </AspectRatio>
       <CardHeader className="mt-6">
@@ -60,7 +59,7 @@ export default function VacancyCard( { vacancy }: { vacancy: any }) {
 )}
 
       </CardContent>
-      <CardFooter>
+      <CardFooter className="self-end">
       <DrawerTrigger asChild>
       <Button >Подробнее</Button>
       </DrawerTrigger>

@@ -9,9 +9,9 @@ module.exports = {
     theme: {
       extend: {
         colors: {
-          primary: "#AF0707", // Основной цвет
-          secondary: "#FF4081", // Второстепенный
-          background: "#F5F5F5", // Фон
+          primary: "#870B0B", 
+          
+          background: "#116948", 
           text: "#212121", // Основной текст
         },
       },
