@@ -20,26 +20,26 @@ export default function DialogAnketaContent({profession}:any) {
       <DialogDescription>
         Укажите пожалуйста свой номер телефона и имя для отправки заявки.
       </DialogDescription>
-    </DialogHeader><div className="grid gap-4 py-4">
-        <div className="flex flex-col items-start gap-4">
+    </DialogHeader><div className="grid gap-4 ">
+        <div className="flex flex-col items-start gap-1 bg-gray-100 rounded-md pt-2 px-1 pb-1">
           <Label htmlFor="name" className="text-right">
             Имя: <span className="font-light text-sm text-gray-600">*Ваше имя</span>
           </Label>
-          <Input id="name"  className="col-span-3" />
+          <Input id="name"  className="col-span-3 bg-white" />
         </div>
-        <div className="flex flex-col items-start gap-1">
+        <div className="flex flex-col items-start gap-1 bg-gray-100 rounded-md pt-2 px-1 pb-1">
           <Label htmlFor="phone" className="text-left">
             Номер телефона: <span className="font-light text-sm text-left text-gray-600">*Номер указаный в меседжерах Viber, WhatsApp, Telegram.</span>
           </Label>
-          <Input id="phone"  className="col-span-3" />
+          <Input id="phone"  className="col-span-3 bg-white" />
         </div>
-        <div className="flex flex-col items-start gap-1">
+        <div className="flex flex-col items-start gap-1 bg-gray-100 rounded-md pt-2 px-1 pb-1">
           <Label htmlFor="username" className="text-left">
-            Опыт работы: <span className="font-light text-sm text-left text-gray-600">Опыт работы по профессии {profession}</span>
+            Опыт работы: <span className="font-light text-sm text-left text-gray-600 bg-gray-100 rounded-md pt-2 px-1 pb-1">Опыт работы по профессии {profession}</span>
           </Label>
           <Select>
-  <SelectTrigger className="w-full">
-    <SelectValue placeholder="Theme" />
+  <SelectTrigger className="w-full bg-white">
+    <SelectValue placeholder="Без опыта" />
   </SelectTrigger>
   <SelectContent>
     <SelectItem value="Меньше года">Меньше года</SelectItem>
@@ -53,7 +53,7 @@ export default function DialogAnketaContent({profession}:any) {
 </Select>
 
         </div>
-        <div className="flex flex-col items-start gap-1">
+        <div className="flex flex-col items-start gap-1 ">
         <Label htmlFor="documents" className="text-left">
             Документы: <span className="font-light text-sm text-left text-gray-600">*Разрешающие работу в Европе.</span>
           </Label>

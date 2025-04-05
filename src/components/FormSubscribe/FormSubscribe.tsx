@@ -40,7 +40,7 @@ export default function FormSubscribe() {
                 Получать регулярные уведомления о актуальных новостях: ${consentNews ? 'Да' : 'Нет'}
             `;
             setIsLoading(true);
-            await sendMessage(message);
+            // await sendMessage(message);
             alert('Подписка оформлена!');
             setFormData({ email: '', consentEmails: true, consentJobAlerts: true, consentNews: true });
         } catch (error) {
@@ -51,10 +51,10 @@ export default function FormSubscribe() {
     };
 
     return (
-        <div className="bg-[#870B0B] text-white ">
+        <div className="bg-[#870B0B] text-white">
             <h2 className="text-2xl text-center py-2">Активируй бесплатную подписку уже сейчас</h2>
             <div className="md:grid grid-cols-2 shadow-xl bg-gradient-red text-white">
-                    <p className="text-center max-w-1/2 m-auto ">
+                    <p className="text-center md:max-w-1/2 m-auto py-2">
                         Заполните короткую форму и присоединяйся к группе подписчиков, чтобы регулярно получать уведомления о новых предложениях работы и сообщения на твою электронную почту или смс.
                     </p>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
@@ -88,7 +88,7 @@ export default function FormSubscribe() {
                         />
                         <p>Получай регулярные уведомления о актуальных новостях</p>
                     </div>
-                    <div className="w-full flex gap-1">
+                    <div className="w-full flex gap-1 py-3">
 
                     <Input 
                         type="text" 

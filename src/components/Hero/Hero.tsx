@@ -46,7 +46,7 @@ const Hero06 = () => {
         </div>
         <div className="mt-12 flex items-center justify-center flex-wrap gap-4">
         <Link href="/vacancy/all">
-          <Button size="lg"  className="rounded-full text-base">
+          <Button size="lg"  className="rounded-full text-base ">
             Смотреть предложения <ArrowUpRight className="!h-5 !w-5" />
           </Button>
           </Link>

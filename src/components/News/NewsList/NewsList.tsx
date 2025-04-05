@@ -1,36 +1,36 @@
 'use client';
-import VacancyCard from "@/components/Vacancy/VacancyCard/VacancyCard";
 import { useEffect, useState } from "react";
+import NewsCard from "../NewsCard/NewsCard";
 
 export default function VacancyList({ type, limit }: { type: string; limit?: number }) {
-  const [vacancies, setVacancies] = useState<any[]>([]);
-
+  const [news, setNews] = useState<any[]>([]);
+    console.log("news", news);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = `/api/vacancy/all?type=${type}${limit ? `&limit=${limit}` : ""}`;
+        const url = `/api/news/all?type=${type}${limit ? `&limit=${limit}` : ""}`;
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error('Failed to fetch vacancy');
         }
 
         const data: any = await response.json();
-        setVacancies(data); // Сохраняем вакансии в состоянии
+        setNews(data); 
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchData();
-  }, [type, limit]); // Зависимость от типа вакансии и лимита
+  }, [type, limit]); 
 
   return (
     <div className="min-h-screen flex items-center justify-center ">
     <div className="w-full">
       <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 max-w-md sm:max-w-screen-md lg:max-w-screen-lg w-full mx-auto px-6">
-        {vacancies.map((vacancy: any, index: number) => (
+        {news.map((news: any, index: number) => (
           <div key={index}>
-              <VacancyCard vacancy={vacancy} />
+              <NewsCard news={news} />
           </div>
         ))}
       </div>

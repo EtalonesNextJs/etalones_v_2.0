@@ -8,7 +8,7 @@ import React from "react";
 
 const Userfull = () => {
   return (
-    <div className="relative min-h-max flex items-center justify-center bg-primary text-white">
+    <div className="relative min-h-max flex items-center justify-center bg-[#870B0B] text-white">
       <div className="max-w-screen w-full mx-auto grid lg:grid-cols-3 gap-12 px-6 py-12">
       <Image src="/main/women-2.jpg" alt="main" width={450} height={500} objectFit="cover" className=" rounded-xl hidden md:block"/>
         <div className="col-span-2">

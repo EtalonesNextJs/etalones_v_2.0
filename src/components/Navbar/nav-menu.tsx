@@ -26,7 +26,7 @@ export const NavMenu = (props: NavigationMenuProps) => (
           </Button>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-xl font-normal">
+          <NavigationMenuTrigger className="text-[1.1rem] font-normal">
             Вакансии
           </NavigationMenuTrigger>
           <NavigationMenuContent>

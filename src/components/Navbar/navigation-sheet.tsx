@@ -3,7 +3,6 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { foods, travelMenuItems } from "./config";
-import { Logo } from "./logo";
 import Image from "next/image";
 export const NavigationSheet = () => {
   return (
@@ -14,7 +13,6 @@ export const NavigationSheet = () => {
         </Button>
       </SheetTrigger>
       <SheetContent className="bg-[#870B0B] text-white">
-        {/* <Logo /> */}
 
         <Link href="/">
           <Image src="/main/logoWhite.png" alt={""} width={150} height={150} className="m-5 mb-0" />

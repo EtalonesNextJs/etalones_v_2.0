@@ -5,7 +5,7 @@ export const GET = async (request: Request): Promise<Response> => {
   await connectDB();
   const { searchParams } = new URL(request.url);
   const type = searchParams.get('type');
-  const limit = searchParams.get('limit'); // Извлекаем параметр limit
+  const limit = searchParams.get('limit'); 
 
   const stageId = process.env[`STAGE_${type?.toUpperCase()}`];
 
@@ -27,7 +27,6 @@ export const GET = async (request: Request): Promise<Response> => {
     return new Response(JSON.stringify({ error: 'Стадия не найдена' }), { status: 404 });
   }
 
-  // Если параметр limit передан, ограничиваем количество вакансий
   const vacancies = stage.vacancy || [];
   const limitedVacancies = limit ? vacancies.slice(0, parseInt(limit)) : vacancies;
 

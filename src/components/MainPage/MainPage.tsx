@@ -1,14 +1,11 @@
-import Image from "next/image"
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
-import Hero from "./Hero/Hero";
 import FormCallBack from "../FormCallBack/FormCallBack";
 import Hero06 from "../Hero/Hero";
 import VacancyList from "../Vacancy/VacancyList/VacancyList";
-import { User } from "lucide-react";
 import Userfull from "../Userfull/Userfull";
-import Testimonial04 from "../VacancyActual/VacancyActual";
 import News from "../News/News";
 import FormSubscribe from "../FormSubscribe/FormSubscribe";
+import Footer from "../Footer/Footer";
+import NewsList from "../News/NewsList/NewsList";
 
 export default function MainPage() {
 
@@ -22,11 +19,12 @@ export default function MainPage() {
     <div >    
     <Hero06 />
     <FormCallBack />
-    <div className="text-3xl font-bold text-center text-red-700 p-2 md:px-10 py-3 ">{text}</div>
+    <div className="text-3xl font-bold text-center text-[#870B0B] p-2 md:px-10 py-3 ">{text}</div>
     {/* <Testimonial04/> */}
     <VacancyList type="all" limit={3} />
     <Userfull/>
-    <News/>
+    <NewsList type="all_news" limit={3} />
     <FormSubscribe/>
+    <Footer/>
     </div>
 )}
