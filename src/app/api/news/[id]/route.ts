@@ -9,7 +9,6 @@ export async function GET(request: any, { params }: any) {
     await connectDB();
     try {
         const news = await News.findById(id)
-        console.log("news", news);
         if (!news) {
             console.error('News not found');
             return NextResponse.json({ message: "News not found" }, { status: 404 });

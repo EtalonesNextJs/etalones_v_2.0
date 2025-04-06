@@ -1,5 +1,6 @@
 import { Schema, model, models } from "mongoose";
 import {Vacancies} from './Vacancies';
+console.log("Параметры пришедшие в модель",Vacancies);
 const ManagerSchema = new Schema({
   vacancy: [{
     type: Schema.Types.ObjectId,

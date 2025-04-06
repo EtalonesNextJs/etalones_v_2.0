@@ -1,22 +1,15 @@
 import { Schema, model, models } from "mongoose";
-import {VacancyImages} from './VacancyImages';
-import {HomeImages} from './HomeImages';
 import {Manager} from './Manager';
+console.log("Параметры пришедшие в модель",Manager);
 const VacanciesSchema = new Schema({
-    image: {
-        type: Schema.Types.ObjectId,
-        ref: 'VacancyImages'
-      },
+   
     imageFB: {
       type: String
     },
     homeImageFB: [{
       type: String
     }],
-    homeImages:[{
-        type: Schema.Types.ObjectId,
-        ref: 'HomeImages'
-    }],
+    
       title: {
         type: String
       },

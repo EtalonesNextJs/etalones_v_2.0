@@ -1,26 +1,14 @@
 'use client';
+import { NewsType } from "@/lib/types/interfaces";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-const features = [
-    {
-      title: "Identify Opportunities",
-      description: "Find untapped areas to explore effortlessly.",
-    },
-    {
-      title: "Build Authority",
-      description: "Craft content that resonates and inspires trust.",
-    },
-    {
-      title: "Instant Insights",
-      description: "Get actionable insights instantly at a glance.",
-    },
-  ];
+
   
 
 
   const News = () => {
-    const [news, setNews] = useState<any[]>([]);
+    const [news, setNews] = useState<NewsType[]>([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -39,6 +27,9 @@ const features = [
 
       fetchNews();
     }, []);
+
+    if (loading) return <div>Loading...</div>;
+
     return (
       <div className="min-h-screen flex items-center justify-center py-12">
         <div className="w-full">
@@ -46,8 +37,8 @@ const features = [
             Новости
           </h2>
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 max-w-md sm:max-w-screen-md lg:max-w-screen-lg w-full mx-auto px-6">
-            {news.map((news: any, index: number) => (
-              <div key={news.title} className="flex flex-col text-start">
+            {news.map((news: NewsType, index: number) => (
+              <div key={index} className="flex flex-col text-start">
 
                 <Image src={`data:${news.image.contentType};base64,${Buffer.from(news.image.data).toString('base64')}`}
                  width={200} height={200} alt="news" className="mb-5 sm:mb-6 w-full aspect-[4/5] bg-muted rounded-xl" />

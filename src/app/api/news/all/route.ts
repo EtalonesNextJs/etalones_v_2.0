@@ -21,7 +21,6 @@ export const GET = async (request: Request): Promise<Response> => {
       return new Response(JSON.stringify({ error: 'Неверный или отсутствующий тип' }), { status: 400 });
     }
 
-    console.log('Stage ID:', stageId);
 
     const stage = await Stage.findById(stageId).populate({
       path: 'news',
@@ -33,13 +32,10 @@ export const GET = async (request: Request): Promise<Response> => {
       return new Response(JSON.stringify({ error: 'Стадия не найдена' }), { status: 404 });
     }
 
-    console.log('Stage found:', stage);
 
     const news = stage.news || [];  // Получаем новости из стадии
-    console.log('Fetched news:', news);
 
     const limitedNews = limit ? news.slice(0, parseInt(limit)) : news;  // Ограничиваем количество новостей
-    console.log('Limited news:', limitedNews);
 
     return new Response(JSON.stringify(limitedNews), { status: 200 });
   } catch (error) {

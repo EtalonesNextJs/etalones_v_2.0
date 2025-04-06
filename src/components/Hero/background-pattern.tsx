@@ -2,12 +2,7 @@
 
 // import DotPattern from "@/components/ui/dot-pattern";
 // import Particles from "@/components/ui/particles";
-import { cn } from "@/lib/utils";
-import { useTheme } from "next-themes";
-import Image from "next/image";
 export const BackgroundPattern = () => {
-  const { resolvedTheme } = useTheme();
-  const isLightTheme = resolvedTheme === "light";
 
   return (
     <>

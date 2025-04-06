@@ -9,11 +9,12 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { AspectRatio } from "@radix-ui/react-aspect-ratio"
-import { Car, DockIcon, FileStack, HandCoins, Home, MapPin, MapPinned } from "lucide-react"
+import { Car, FileStack, HandCoins, Home, MapPinned } from "lucide-react"
 import { Drawer, DrawerTrigger } from "@/components/ui/drawer"
 import DrawerContentComponent from "@/components/Drawer/DrawerContentComponent"
 import { Dialog } from "@/components/ui/dialog"
-export default function VacancyCard( { vacancy }: { vacancy: any }) {
+import { VacancyType } from "@/lib/types/vacancy"
+export default function VacancyCard( { vacancy }: { vacancy: VacancyType }) {
   return (
     <Dialog>
     <Drawer>
@@ -54,7 +55,7 @@ export default function VacancyCard( { vacancy }: { vacancy: any }) {
     {vacancy.documents
       .join('; ')
       .split('; ')
-      .map((doc:any, index: any) => (
+      .map((doc:string, index: number) => (
         <span key={index}>
           {doc}
           <br />

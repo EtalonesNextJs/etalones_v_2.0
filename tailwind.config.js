@@ -10,7 +10,6 @@ module.exports = {
       extend: {
         colors: {
           primary: "#870B0B", 
-          
           background: "#116948", 
           text: "#212121", // Основной текст
         },

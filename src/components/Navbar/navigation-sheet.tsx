@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { LucideIcon, Menu } from "lucide-react";
 import Link from "next/link";
-import { foods, travelMenuItems } from "./config";
+import { vacancyMenuItems, userfulMenuItems } from "./config";
 import Image from "next/image";
 export const NavigationSheet = () => {
   return (
@@ -12,7 +12,7 @@ export const NavigationSheet = () => {
           <Menu />
         </Button>
       </SheetTrigger>
-      <SheetContent className="bg-[#870B0B] text-white">
+      <SheetContent className="bg-primary text-white">
 
         <Link href="/">
           <Image src="/main/logoWhite.png" alt={""} width={150} height={150} className="m-5 mb-0" />
@@ -22,11 +22,11 @@ export const NavigationSheet = () => {
           <div>
             <div className="font-bold">Вакансии</div>
             <ul className="mt-2 space-y-3 ml-1 pl-4 border-l">
-              {foods.map((foodItem) => (
-                <li key={foodItem.title}>
-                  <Link href="#" className="flex items-center gap-2">
-                    <foodItem.icon className="h-7 w-7 mr-2 text-[#DE9433]" />
-                    {foodItem.title}
+              {vacancyMenuItems.map((vacancyItem) => (
+                <li key={vacancyItem.title}>
+                  <Link href={vacancyItem.href ||"#"} className="flex items-center gap-2">
+                    <vacancyItem.icon className="h-7 w-7 mr-2 text-[#DE9433]" />
+                    {vacancyItem.title}
                   </Link>
                 </li>
               ))}
@@ -36,7 +36,7 @@ export const NavigationSheet = () => {
           <div>
             <div className="font-bold">Travel</div>
             <ul className="mt-2 space-y-3 ml-1 pl-4 border-l">
-              {travelMenuItems.map((item: any) => (
+              {userfulMenuItems.map((item: { title: string; icon: LucideIcon; description: string; }) => (
                 <li key={item.title}>
                   <Link href="#" className="flex items-center gap-2">
                     <item.icon className="h-5 w-5 mr-2 text-muted-foreground" />

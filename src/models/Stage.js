@@ -1,7 +1,8 @@
 import { Schema, model, models } from "mongoose";
-
 import {Vacancies} from './Vacancies';
 import {News} from './News';
+console.log("Параметры пришедшие в модель",News);
+console.log("Параметры пришедшие в модель",Vacancies);
 const StageSchema = new Schema({
   name: String,
   vacancy:[{

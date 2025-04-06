@@ -1,10 +1,8 @@
 import FormCallBack from "../FormCallBack/FormCallBack";
-import Hero06 from "../Hero/Hero";
+import Hero from "../Hero/Hero";
 import VacancyList from "../Vacancy/VacancyList/VacancyList";
 import Userfull from "../Userfull/Userfull";
-import News from "../News/News";
 import FormSubscribe from "../FormSubscribe/FormSubscribe";
-import Footer from "../Footer/Footer";
 import NewsList from "../News/NewsList/NewsList";
 
 export default function MainPage() {
@@ -17,14 +15,12 @@ export default function MainPage() {
     const text= `Актуальные вакансии на ${getCurrentDate()}`
   return (
     <div >    
-    <Hero06 />
+    <Hero />
     <FormCallBack />
-    <div className="text-3xl font-bold text-center text-[#870B0B] p-2 md:px-10 py-3 ">{text}</div>
-    {/* <Testimonial04/> */}
+    <div className="text-3xl font-bold text-center text-primary p-2 md:px-10 py-3 ">{text}</div>
     <VacancyList type="all" limit={3} />
     <Userfull/>
     <NewsList type="all_news" limit={3} />
     <FormSubscribe/>
-    <Footer/>
     </div>
 )}

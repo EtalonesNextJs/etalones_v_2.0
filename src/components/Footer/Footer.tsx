@@ -16,7 +16,7 @@ export default function Footer(){
     <p className="font-bold">
       Etalones S&B <br/>
     </p> 
-    <p>Copyright © 2024 - All right reserved</p>
+    <p>Copyright © 2025 - All right reserved</p>
   </aside> 
         </div>
     )

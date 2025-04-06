@@ -1,5 +1,5 @@
-import { connectDB } from "@/src/lib/db"; // Make sure to import the correct DB connection
-import  Vacancies from "@/src/models/Vacancies"; // Import your Vacancy model
+import { connectDB } from "@/lib/db"; // Make sure to import the correct DB connection
+import  Vacancies from "@/models/Vacancies"; // Import your Vacancy model
 import { NextResponse } from "next/server";
 
 export const GET = async (req: Request) => {

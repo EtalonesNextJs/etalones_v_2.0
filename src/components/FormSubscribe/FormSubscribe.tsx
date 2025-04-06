@@ -2,7 +2,7 @@
 import { useState } from "react";
 import {Button} from "@/components/ui/button";
 import { Input } from "../ui/input";
-// import { sendMessage } from "@/app/api/telegram/telegram";
+import { sendMessage } from "@/app/api/telegram/telegram";
 
 export default function FormSubscribe() {
     const [formData, setFormData] = useState({
@@ -40,7 +40,7 @@ export default function FormSubscribe() {
                 Получать регулярные уведомления о актуальных новостях: ${consentNews ? 'Да' : 'Нет'}
             `;
             setIsLoading(true);
-            // await sendMessage(message);
+            await sendMessage(message);
             alert('Подписка оформлена!');
             setFormData({ email: '', consentEmails: true, consentJobAlerts: true, consentNews: true });
         } catch (error) {
@@ -51,7 +51,7 @@ export default function FormSubscribe() {
     };
 
     return (
-        <div className="bg-[#870B0B] text-white">
+        <div className="bg-primary text-white">
             <h2 className="text-2xl text-center py-2">Активируй бесплатную подписку уже сейчас</h2>
             <div className="md:grid grid-cols-2 shadow-xl bg-gradient-red text-white">
                     <p className="text-center md:max-w-1/2 m-auto py-2">
@@ -94,12 +94,12 @@ export default function FormSubscribe() {
                         type="text" 
                         name="email"
                         placeholder="email@gmail.com"
-                        className="bg-white w-full max-w-xs" 
+                        className="bg-white text-black w-full max-w-xs" 
                         value={formData.email}
                         onChange={handleChange}
                     />
                     {errors.email && <span className="text-red-500">{errors.email}</span>}
-                    <Button  className="bg-white text-[#870B0B] hover:text-white hover:bg-[#870B0B] hover:border-[#ffffff] w-max  md:mx-0">
+                    <Button  className="bg-white text-primary hover:text-white hover:bg-primary hover:border-[#ffffff] w-max  md:mx-0">
                     Подписаться
                     </Button>
                     </div>

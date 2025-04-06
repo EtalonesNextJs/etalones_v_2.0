@@ -135,7 +135,7 @@
 import * as React from "react";
 import { Badge } from "@/components/ui/badge";
 import { X } from "lucide-react";
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback} from "react";
 
 type Country = Record<"value" | "label", string>;
 

@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from "react";
 import {Button} from "@/components/ui/button";
-// import { sendMessage } from "@/app/api/telegram/telegram";
+import { sendMessage } from "@/app/api/telegram/telegram";
 import { useRouter } from "next/navigation";
 import { Input } from "../ui/input";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../ui/select";
@@ -12,7 +12,7 @@ export default function FormCallBack() {
         name: '',
         phone: '',
         time: '',
-        currentPage: '', // добавляем поле для текущей страницы
+        currentPage: '', 
     });
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
@@ -36,67 +36,7 @@ export default function FormCallBack() {
         });
     };
 
-    // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    //     e.preventDefault();
 
-    //     const { name, phone, time, currentPage } = formData;
-
-    //     if (!name.trim()) {
-    //         setErrors({ ...errors, name: 'Введите имя' });
-    //         return;
-    //     }
-    //     if (!phone.trim()) {
-    //         setErrors({ ...errors, phone: 'Введите телефон' });
-    //         return;
-    //     }
-    //     if (!time.trim()) {
-    //         setErrors({ ...errors, time: 'Выберите время звонка' });
-    //         return;
-    //     }
-
-    //     try {
-    //         // Формируем сообщение для Telegram
-    //         const message = `
-    //             Имя: ${name}
-    //             Телефон: ${phone}
-    //             Время звонка: ${time}
-    //             Страница: ${currentPage} 
-    //         `;
-    //         setIsLoading(true);
-    //         await sendMessage(message);
-
-    //         // Формируем данные для сохранения в базу данных
-    //         const body = {
-    //             name,
-    //             phone,
-    //             time,
-    //             source: 'сайт'
-    //         };
-
-    //         const response = await fetch('/api/candidates', { 
-    //             method: 'POST',
-    //             headers: { 'Content-Type': 'application/json' },
-    //             body: JSON.stringify(body)
-    //         });
-
-    //         const result = await response.json();
-    //         if (response.ok) {
-    //             console.log('Candidate created:', result);
-    //             alert('Запрос на звонок отправлен и сохранен в базу данных!');
-    //             router.refresh();
-    //             router.push("/dashboard/candidates");
-    //             setFormData({ name: '', phone: '', time: '', currentPage: '' });
-    //         } else {
-    //             setErrors({ ...errors, name: result.message || 'Ошибка при сохранении в базу данных' });
-    //         }
-    //     } catch (error) {
-    //         setErrors({ ...errors, name: 'Ошибка при отправке сообщения или сохранении в базу данных' });
-    //         console.error('Error:', error);
-    //     } finally {
-    //         setIsLoading(false);
-    //     }
-    // };
-// Обработчик формы
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
@@ -124,7 +64,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         Страница: ${currentPage} 
       `;
       setIsLoading(true);
-      // await sendMessage(message);
+      await sendMessage(message);
   
       // Формируем данные для сохранения в базу данных
       const body = {
@@ -142,7 +82,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   
       const result = await response.json();
       if (response.ok) {
-        console.log('Candidate created:', result);
         alert('Запрос на звонок отправлен и сохранен в базу данных!');
         router.refresh();
         router.push("/");
@@ -160,10 +99,13 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   
     return (
         <div className=" px-10 py-5 bg-secondary">
-            <div className="w-full">
-                <h3 className="text-2xl">Оставьте свой номер телефона и мы сразу свяжемся с Вами.</h3>
-                <p>Назначьте время разговора с нами и мы поможем Вам выбрать вакансию и ответим на Ваши вопросы.</p>
-                <form onSubmit={handleSubmit} className="grid md:grid-cols-4 gap-4 w-full items-center">
+            <div className=" ">
+                <h3 className="text-2xl text-center">Оставьте свой номер телефона и мы сразу свяжемся с Вами.</h3>
+                <p className="text-center mb-2">Назначьте время разговора с нами и мы поможем Вам выбрать вакансию и ответим на Ваши вопросы.</p>
+                <form onSubmit={handleSubmit} className="grid md:grid-cols-8 mx-auto gap-4 w-full items-center justify-items-center">
+                  <div/>
+                  <div/>
+
                     <Input 
                         className="input input-bordered" 
                         placeholder="Имя" 
@@ -180,10 +122,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                         onChange={handleChange} 
                     />
                     
-                    <Select  
-                        name="time"
-                        // value={formData.time}
-                    >
+                    <Select value={formData.time} onValueChange={(value) => handleChange(value)}>
                        <SelectTrigger className="w-full">
         <SelectValue placeholder="Время звонка" />
       </SelectTrigger>

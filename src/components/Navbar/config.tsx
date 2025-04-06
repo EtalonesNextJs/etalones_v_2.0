@@ -1,63 +1,63 @@
 import {
-  ArrowUpAZ,
+  
     Backpack,
-    CakeSlice,
-    Coffee,
     Drill,
-    Grape,
     HardHat,
     Hotel,
-    IceCream,
     MapPin,
     Package,
     PackagePlus,
-    PackagePlusIcon,
     PaintRoller,
-    Pizza,
     Plane,
-    Sandwich,
     Smile,
     UtilityPole,
   } from "lucide-react";
   
-  export const foods = [
+  export const vacancyMenuItems = [
     {
       title: "Все вакансии",
       icon: Package,
       description: "Все актуальные вакансии.",
+      href: "/vacancy/all",
     },
     {
       title: "Новые вакансии",
       icon: PackagePlus,
       description: "Добавленые вакансии за последний месяц.",
+      href: "/vacancy/new",
     },
     {
       title: "Внутреняя отделка",
       icon: PaintRoller,
       description: "Штукатурка, малярка, плитка, ГПК, электрика, сантехника...",
+      href: "/vacancy/indor",
     },
     {
       title: "Уличные работы",
       icon: HardHat,
       description: "Брусчатка, строительные леса, каменьщики, арматура-бетон...",
+      href: "/vacancy/urban",
     },
     {
       title: "Электрика",
       icon: UtilityPole,
       description: "Слаботочка, солнечные панели, подкючение щитов, электроника...",
+      href: "/vacancy/electric",
     },
     {
       title: "Сантехника",
       icon: Drill,
       description: "Сан-узлы, ванные комнаты, отопление...",
+      href: "/vacancy/sanitary",
     },
   ];
   
-  export const travelMenuItems = [
+  export const userfulMenuItems = [
     {
-      title: "Destinations",
+      title: "Польская рабочая виза",
       icon: MapPin,
       description: "Discover amazing places to visit.",
+      href: `/userful/`,
     },
     {
       title: "Hotels",

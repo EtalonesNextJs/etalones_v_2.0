@@ -1,13 +1,12 @@
 'use client'
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, CirclePlay, PenLine } from "lucide-react";
+import { ArrowUpRight, PenLine } from "lucide-react";
 import { BackgroundPattern } from "./background-pattern";
 import { useState, useEffect } from "react";
 import CountUp from "react-countup";
 import Link from "next/link";
 
-const Hero06 = () => {
+const Hero = () => {
    const [vacancyCount, setVacancyCount] = useState<number | null>(null);
     const [totalPositionsAvailable, setTotalPositionsAvailable] = useState<number | null>(null);
   
@@ -17,7 +16,7 @@ const Hero06 = () => {
           const res = await fetch('/api/stats');
           const data = await res.json();
           setVacancyCount(data.vacancyCount);
-          setTotalPositionsAvailable(data.availablePositions);
+          setTotalPositionsAvailable(data.place);
         } catch (error) {
           console.error('Ошибка загрузки данных:', error);
         }
@@ -64,4 +63,4 @@ const Hero06 = () => {
   );
 };
 
-export default Hero06;
+export default Hero;

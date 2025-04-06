@@ -2,15 +2,15 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 import { AspectRatio } from "@radix-ui/react-aspect-ratio"
+import { NewsType } from "@/lib/types/interfaces"
 
-export default function NewsCard( { news }: { news: any }) {
+export default function NewsCard( { news }: { news: NewsType }) {
   return (
 
     <Card className="w-full max-w-[400px] h-full relative">

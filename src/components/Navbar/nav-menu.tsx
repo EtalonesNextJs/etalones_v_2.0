@@ -14,14 +14,13 @@ import { NavigationMenuProps } from "@radix-ui/react-navigation-menu";
 import { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import { foods, travelMenuItems } from "./config";
-import Image from "next/image";
+import { vacancyMenuItems, userfulMenuItems } from "./config";
 
 export const NavMenu = (props: NavigationMenuProps) => (
     <NavigationMenu {...props}>
       <NavigationMenuList className="gap-0 space-x-0 text-sm text-white">
         <NavigationMenuItem>
-          <Button variant="ghost" className="text-xl font-normal" asChild>
+          <Button variant="ghost" className="text-[1.1rem] font-normal" asChild>
             <Link href="/">Главная</Link>
           </Button>
         </NavigationMenuItem>
@@ -30,32 +29,33 @@ export const NavMenu = (props: NavigationMenuProps) => (
             Вакансии
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              {foods.map((food) => (
+            <ul className="grid text-[1.1rem] w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {vacancyMenuItems.map((vacancy) => (
                 <ListItem
-                  key={food.title}
-                  title={food.title}
-                  icon={food.icon}
-                  href="#"
+                  key={vacancy.title}
+                  title={vacancy.title}
+                  icon={vacancy.icon}
+                  href={vacancy.href || '#'}
                 >
-                  {food.description}
+                  {vacancy.description}
                 </ListItem>
               ))}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-xl font-normal">
+          <NavigationMenuTrigger className="text-[1.1rem] font-normal">
             Полезно
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              {travelMenuItems.map((menuItem) => (
+              {userfulMenuItems.map((menuItem) => (
                 <ListItem
                   key={menuItem.title}
                   title={menuItem.title}
                   icon={menuItem.icon}
-                  href="#"
+                  iconSize="h-20 w-20"
+                  href={menuItem.href || '#'}
                 >
                   {menuItem.description}
                 </ListItem>
@@ -63,18 +63,48 @@ export const NavMenu = (props: NavigationMenuProps) => (
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Button variant="ghost" className="text-[1.1rem] font-normal" asChild>
+            <Link href="/reviews">Отзывы</Link>
+          </Button>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger className="text-[1.1rem] font-normal">
+            Соискателям
+          </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid text-[1.1rem] w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {vacancyMenuItems.map((vacancy) => (
+                <ListItem
+                  key={vacancy.title}
+                  title={vacancy.title}
+                  icon={vacancy.icon}
+                  href={vacancy.href || '#'}
+                >
+                  {vacancy.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Button variant="ghost" className="text-[1.1rem] font-normal" asChild>
+            <Link href="/contacts">Контакты</Link>
+          </Button>
+        </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   );
   
 const ListItem = React.forwardRef<
   React.ElementRef<typeof Link>,
-  React.ComponentPropsWithoutRef<typeof Link> & { icon: LucideIcon }
->(({ className, title, children, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<typeof Link> & { icon: LucideIcon, iconSize?: string }
+>(({ href,className, title, children,iconSize = 'h-6 w-6', ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
         <Link
+          href={href}
           ref={ref}
           className={cn(
             "block select-none space-y-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
@@ -82,8 +112,8 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <props.icon className="mb-4 h-6 w-6" />
-          <div className="text-md font-semibold leading-none">{title}</div>
+          <props.icon className={`${iconSize} mb-4`} />
+          <div className="text-[1.1rem] font-semibold leading-none">{title}</div>
           <p className="line-clamp-2 text-md leading-snug text-muted-foreground">
             {children}
           </p>
