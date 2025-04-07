@@ -38,8 +38,9 @@ export default function NewsPage( {news}: any) {
                 <p>{new Date(news?.createdAt).toLocaleDateString()}</p>
                 <div>Источник: <p>{convertLinks(news?.source)}</p></div>
             </div>
-        </div><div className="mt-10">
-                <h2 className="text-2xl font-bold text-center">Похожие новости</h2>
+        </div>
+        <div className="mt-10">
+                {/* <h2 className="text-2xl font-bold text-center">Похожие новости</h2> */}
                 {/* <CardNews category={news.category} currentNewsId={news._id}/> */}
             </div><FormCallBack /><Userfull /></>
    
