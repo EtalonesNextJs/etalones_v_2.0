@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import NavbarPage from "@/components/Navbar/navbar";
 import Footer from "@/components/Footer/Footer";
 import { VacancyProvider } from "@/context/VacancyContext";
+import { NewsProvider } from "@/context/NewsContext";
 
 export default function DefaultLayout({
   children,
@@ -15,6 +16,7 @@ export default function DefaultLayout({
 
   return (
     <VacancyProvider>
+      <NewsProvider>
       <div className="relative flex flex-1 flex-col">
         <NavbarPage/>
         <main>
@@ -23,6 +25,7 @@ export default function DefaultLayout({
         </main>
         <Footer/>
     </div>
+    </NewsProvider>
     </VacancyProvider>
   );
 }
