@@ -240,7 +240,7 @@ export default function DialogAnketaContent({ vacancy, setOpen}: any) {
     // Блокируем кнопку отправки
     setIsSubmitted(true);
 
-    const { name, phone, profession, documents } = formData;
+    const { name, phone, profession } = formData;
 
     // Проверка на пустые поля
     if (!name.trim()) {
@@ -258,11 +258,7 @@ export default function DialogAnketaContent({ vacancy, setOpen}: any) {
       setIsSubmitted(false); // Разблокируем кнопку
       return;
     }
-    if (!documents.length) {
-      setErrors({ ...errors, documents: 'Выберите документы' });
-      setIsSubmitted(false); // Разблокируем кнопку
-      return;
-    }
+   
 
     try {
       // Сообщение для Telegram
@@ -393,7 +389,9 @@ export default function DialogAnketaContent({ vacancy, setOpen}: any) {
             Закрыть
           </Button>
         </DialogClose>
-        <Button className="bg-[#116948]" type="submit">Отправить</Button>
+        <Button className="bg-[#116948]" type="submit" disabled={isSubmitted}>
+        {isSubmitted ? "Ваша заявка уже отправлена" : "Отправить"}
+        </Button>
       </DialogFooter>
     </form>
   );

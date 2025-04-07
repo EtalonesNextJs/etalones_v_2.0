@@ -6,9 +6,7 @@ export default function Home() {
       <main className="">
       <MainPage/>
       </main>
-      <footer className="">
-       
-      </footer>
+      
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { Schema, model, models } from "mongoose";
 import { Manager } from './Manager';
+import { Candidate } from './Candidate';
 console.log("Параметры пришедшие в модель",Manager);
 const VacanciesSchema = new Schema({
    
@@ -9,7 +10,9 @@ const VacanciesSchema = new Schema({
     homeImageFB: [{
       type: String
     }],
-    
+    workImageFB: [{
+      type: String
+    }],
       title: {
         type: String
       },
@@ -86,6 +89,10 @@ const VacanciesSchema = new Schema({
       dislikes:[{
         type: String,
 
+      }],
+      interestedCandidates:[{
+        type: Schema.Types.ObjectId,
+        ref: 'Candidate',
       }],
       
 

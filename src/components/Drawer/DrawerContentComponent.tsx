@@ -84,12 +84,12 @@ export default function DrawerContentComponent({ vacancy }: { vacancy: any }) {
                 </div>
               ))}
             </div>
-            {vacancy.homeImageFB && vacancy.homeImageFB.length > 0 && (
+            {vacancy.workImageFB && vacancy.workImageFB.length > 0 && (
   <div className="w-full">
     <Label className="text-xl font-bold my-2">Фото с объекта</Label>
     <Carousel orientation="horizontal" opts={{ align: "center", loop: true }} className="w-full">
       <CarouselContent>
-        {vacancy.homeImageFB.map((image: string, index: number) => (
+        {vacancy.workImageFB.map((image: string, index: number) => (
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
             <Image
               src={image}

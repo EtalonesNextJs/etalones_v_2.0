@@ -1,8 +1,8 @@
 import { Schema, model, models } from "mongoose";
 import {Vacancies} from './Vacancies';
 import {News} from './News';
-console.log("Параметры пришедшие в модель",News);
-console.log("Параметры пришедшие в модель",Vacancies);
+import {Candidate} from './Candidate';
+
 const StageSchema = new Schema({
   name: String,
   vacancy:[{
@@ -12,6 +12,10 @@ const StageSchema = new Schema({
   news:[{
     type: Schema.Types.ObjectId,
     ref: 'News', 
+  }],
+  candidates:[{
+    type: Schema.Types.ObjectId,
+    ref: 'Candidate', 
   }],
   
 }, { timestamps: true });

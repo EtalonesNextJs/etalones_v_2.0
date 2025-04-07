@@ -9,10 +9,11 @@ import {
 } from "@/components/ui/card"
 import { AspectRatio } from "@radix-ui/react-aspect-ratio"
 import { NewsType } from "@/lib/types/interfaces"
+import Link from "next/link"
 
 export default function NewsCard( { news }: { news: NewsType }) {
   return (
-
+<Link href={`/news/${news._id}`}>
     <Card className="w-full max-w-[400px] h-full relative">
       <AspectRatio ratio={1 / 1} >
       <Image src={`data:${news.image.contentType};base64,${Buffer.from(news.image.data).toString('base64')}`}
@@ -61,5 +62,5 @@ export default function NewsCard( { news }: { news: NewsType }) {
     
       </CardFooter>
     </Card>
-   
+    </Link>
 )}
