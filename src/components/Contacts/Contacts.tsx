@@ -74,7 +74,7 @@ const Contacts = () => (
               className="font-medium text-primary"
               href="tel:akashmoradiya3444@gmail.com"
             >
-              +1 (555) 000-0000
+              +48 (555) 000-0000
             </Link>
           </div>
         </div>
