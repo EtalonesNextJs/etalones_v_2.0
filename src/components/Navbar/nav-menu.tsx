@@ -14,11 +14,11 @@ import { NavigationMenuProps } from "@radix-ui/react-navigation-menu";
 import { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import { vacancyMenuItems, userfulMenuItems } from "./config";
+import { vacancyMenuItems, userfulMenuItems, partnersMenuItems } from "./config";
 
 export const NavMenu = (props: NavigationMenuProps) => (
     <NavigationMenu {...props}>
-      <NavigationMenuList className="gap-0 space-x-0 text-sm text-white">
+      <NavigationMenuList className="gap-0 space-x-0 text-sm text-white ">
         <NavigationMenuItem>
           <Button variant="ghost" className="text-[1.1rem] font-normal" asChild>
             <Link href="/">Главная</Link>
@@ -74,14 +74,14 @@ export const NavMenu = (props: NavigationMenuProps) => (
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid text-[1.1rem] w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              {vacancyMenuItems.map((vacancy) => (
+              {partnersMenuItems.map((item) => (
                 <ListItem
-                  key={vacancy.title}
-                  title={vacancy.title}
-                  icon={vacancy.icon}
-                  href={vacancy.href || '#'}
+                  key={item.title}
+                  title={item.title}
+                  icon={item.icon}
+                  href={item.href || '#'}
                 >
-                  {vacancy.description}
+                  {item.description}
                 </ListItem>
               ))}
             </ul>

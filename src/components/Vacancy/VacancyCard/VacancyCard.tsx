@@ -30,25 +30,25 @@ export default function VacancyCard( { vacancy }: { vacancy: VacancyType }) {
       </CardHeader>
       <CardContent className="font-semibold flex flex-col gap-2 justify-between mb-7">
         <div className="flex items-center gap-2">
-          <MapPinned  className="text-[var(--color-primary)]" />
-          <p className="text-xl">{vacancy?.location}</p>
+          <MapPinned  className="text-primary" />
+          <p >{vacancy?.location}</p>
         </div>
         <div className="flex items-center gap-2">
-          <HandCoins  />
-          <p className="text-xl">{vacancy?.salary}</p>
+          <HandCoins className="text-primary" />
+          <p >{vacancy?.salary}</p>
         </div>
         <div className="flex items-center gap-2">
-          <Home/>
+          <Home className="text-primary" />
         <p>{vacancy?.homePrice}</p>
         </div>
         <div className="flex items-center gap-2">
-        <Car/>
+        <Car className="text-primary" />
         {vacancy?.drivePermis?.length > 0 && (
           <><span>Вод удостоверение кат.:</span><p> {vacancy.drivePermis.join('; ')}</p></>
         )}
         </div>
         <div className="flex items-start gap-2">
-<FileStack/>
+<FileStack className="text-primary" />
       {vacancy?.documents?.length > 0 && (
         <p>
     Документы:{" "}
@@ -56,9 +56,10 @@ export default function VacancyCard( { vacancy }: { vacancy: VacancyType }) {
       .join('; ')
       .split('; ')
       .map((doc:string, index: number) => (
-        <span key={index}>
-          {doc}
-          <br />
+        <span key={index} className="text-sm">
+         <br />
+          -{doc}
+          
         </span>
       ))}
   </p>

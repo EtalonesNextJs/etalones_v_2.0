@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import VacancyCard from '@/components/Vacancy/VacancyCard/VacancyCard';
-import VacancyTabs from '@/components/Vacancy/VacancyTabs/VacancyTabs';
 
 export default function VacancyList() {
   const [vacancies, setVacancies] = useState<any[]>([]);
@@ -32,12 +31,14 @@ export default function VacancyList() {
         return 'Все вакансии';
       case 'new':
         return 'Новые вакансии';
-      case 'recruiter':
-        return 'Вакансии рекрутера';
-      case 'manager':
-        return 'Вакансии менеджера';
-      case 'candidate':
-        return 'Вакансии кандидата';
+      case 'indor':
+        return 'Внутреняя отделка';
+      case 'outdor':
+        return 'Уличные работы';
+      case 'electric':
+        return 'Электрика';
+      case 'sanitary':
+        return 'Сантехника';
       default:
         return 'Неизвестный тип';
     }

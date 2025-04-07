@@ -43,12 +43,18 @@ export default function FormSubscribe() {
             await sendMessage(message);
             alert('Подписка оформлена!');
             setFormData({ email: '', consentEmails: true, consentJobAlerts: true, consentNews: true });
-        } catch (error) {
+        } catch  {
             setErrors({ ...errors, email: 'Ошибка при отправке сообщения' });
         } finally {
             setIsLoading(false);
         }
     };
+    
+    if (isLoading) {
+        return (
+            <div className="bg-primary text-white">загрузка</div>
+        );
+    }
 
     return (
         <div className="bg-primary text-white">

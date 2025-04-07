@@ -1,5 +1,5 @@
 import { Schema, model, models } from "mongoose";
-import {Manager} from './Manager';
+import { Manager } from './Manager';
 console.log("Параметры пришедшие в модель",Manager);
 const VacanciesSchema = new Schema({
    

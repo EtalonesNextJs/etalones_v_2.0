@@ -1,0 +1,118 @@
+// import { NextResponse } from 'next/server';
+// import  {connectDB}  from '@/lib/db'; 
+// import Candidate from '@/models/Candidate'; 
+
+
+
+
+// export const POST = async (request: Request) => {
+//   try {
+//     const body = await request.json();
+
+//     console.log("BODY", body);
+//     const { name, phone, profession, documents, manager, vacancy } = body;
+    
+//     await connectDB();
+
+//     // Проверяем, существует ли кандидат с таким номером телефона
+//     const existingCandidate = await Candidate.findOne({ phone: body.phone });
+//     if (existingCandidate) {
+//       return new NextResponse(
+//         JSON.stringify({
+//           message: "Кандидат с таким номером телефона уже существует",
+//         }),
+//         {
+//           status: 400,
+//         }
+//       );
+//     }
+
+//     const newCandidate = new Candidate(body);
+//     await newCandidate.save();
+
+
+//     return new NextResponse(
+//       JSON.stringify({ message: "Candidate is created", candidate: newCandidate }),
+//       { status: 201 }
+//     );
+
+//   } catch (error) {
+//     return new NextResponse(
+//       JSON.stringify({
+//         message: "Error in creating user",
+//         error,
+//       }),
+//       {
+//         status: 500,
+//       }
+//     );
+//   }
+// };
+import { NextResponse } from 'next/server';
+import { connectDB } from '@/lib/db';
+import Candidate from '@/models/Candidate';
+
+export const POST = async (request: Request) => {
+  try {
+    const body = await request.json();
+    console.log("BODY", body);
+
+    const { name, phone, profession, documents, manager, vacancy } = body;
+
+    await connectDB();
+
+    // Проверяем, существует ли кандидат с таким номером телефона
+    const existingCandidate = await Candidate.findOne({ phone: body.phone });
+    if (existingCandidate) {
+      return new NextResponse(
+        JSON.stringify({
+          message: "Кандидат с таким номером телефона уже существует",
+        }),
+        {
+          status: 400,
+        }
+      );
+    }
+
+    // Преобразуем данные под структуру, соответствующую схеме MongoDB
+    const newCandidateData = {
+      source: 'сайт', 
+      name: name,
+      phone: phone,
+      manager: manager,
+      vacancy: vacancy,
+      professions: [
+        {
+          name: profession.name, 
+          experience: profession.expirience, 
+        },
+      ],
+      documents: documents.map((doc: any) => ({
+        docType: doc.name,  
+        dateOfIssue: "",    
+        dateExp: "",       
+        numberDoc: "",      
+      })),
+     
+    };
+
+    const newCandidate = new Candidate(newCandidateData);
+    await newCandidate.save();
+
+    return new NextResponse(
+      JSON.stringify({ message: "Candidate is created", candidate: newCandidate }),
+      { status: 201 }
+    );
+  } catch (error: any) {
+    console.error('Error:', error);
+    return new NextResponse(
+      JSON.stringify({
+        message: "Error in creating user",
+        error: error.message || 'Unknown error',
+      }),
+      {
+        status: 500,
+      }
+    );
+  }
+};

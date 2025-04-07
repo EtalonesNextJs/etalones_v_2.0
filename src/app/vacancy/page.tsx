@@ -1,12 +1,11 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import {  useSearchParams } from 'next/navigation';
 import VacancyCard from "@/components/Vacancy/VacancyCard/VacancyCard";
 
 export default function VacancyList() {
   const [vacancies, setVacancies] = useState<any[]>([]);
-  const pathname = usePathname();  // Get the current pathname
   const searchParams = useSearchParams(); // Get search params (like ?type=new)
 
   const type = searchParams.get("type");  // Extract type from URL

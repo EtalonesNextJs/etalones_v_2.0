@@ -8,21 +8,18 @@ import {
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from "../ui/button"
 import { Card, CardContent, CardFooter } from "../ui/card"
-import { MapPinned, Blocks, CircleCheck, HandCoins, Minus, Scroll, PhoneCall, Phone } from "lucide-react"
+import { MapPinned, Blocks, CircleCheck, HandCoins, Minus, Phone } from "lucide-react"
 import Image from "next/image"
 import { Label } from "../ui/label"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel"
-import { Input } from "../ui/input"
 import DialogAnketaContent from "../Dialog/DialogAnketaContent"
+import { useState } from "react"
 export default function DrawerContentComponent({ vacancy }: { vacancy: any }) {
+  const [open, setOpen] = useState(false);
   return (
     <DrawerContent className="overflow-auto ">
       <DrawerHeader >
@@ -87,6 +84,32 @@ export default function DrawerContentComponent({ vacancy }: { vacancy: any }) {
                 </div>
               ))}
             </div>
+            {vacancy.homeImageFB && vacancy.homeImageFB.length > 0 && (
+  <div className="w-full">
+    <Label className="text-xl font-bold my-2">Фото с объекта</Label>
+    <Carousel orientation="horizontal" opts={{ align: "center", loop: true }} className="w-full">
+      <CarouselContent>
+        {vacancy.homeImageFB.map((image: string, index: number) => (
+          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+            <Image
+              src={image}
+              alt={`Image ${index + 1}`}
+              width={650}
+              height={400}
+              className="flex aspect-4/3 items-center justify-center p-6"
+            />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious type="button" className="ml-5">
+        &lt;
+      </CarouselPrevious>
+      <CarouselNext type="button" className="mr-5">
+        &gt;
+      </CarouselNext>
+    </Carousel>
+  </div>
+)}
             <div className=" rounded-md border border-gray-300 bg-white p-2 shadow-sm">
             <Label className="text-xl font-bold my-2">Быт</Label>
               {vacancy.home_descr?.split(';').map((item: string, index: number) => (
@@ -95,33 +118,33 @@ export default function DrawerContentComponent({ vacancy }: { vacancy: any }) {
                 </div>
               ))}
             </div>
-          {vacancy.homeImageFB && (
-            <div className="w-full">
-              <Label className="text-xl font-bold my-2">Фото жилья</Label>
-              <Carousel orientation="horizontal" opts={{ align: "center", loop: true }}  className="w-full">
-                <CarouselContent >
-                  {vacancy.homeImageFB.map((image: string, index: number) => (
-                               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 ">
-                     
-                         <Image
-                           src={image}
-                           alt={`Image ${index + 1}`}
-                           width={650}
-                           height={400}
-                           className="flex aspect-4/3 items-center justify-center p-6 "
-                         />
-                       </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious type='button' className="ml-5">
-                  &lt;
-                </CarouselPrevious>
-                <CarouselNext type="button" className="mr-5">
-                  &gt;
-                </CarouselNext>
-              </Carousel>
-            </div>
-          )}
+            {vacancy.homeImageFB && vacancy.homeImageFB.length > 0 && (
+  <div className="w-full">
+    <Label className="text-xl font-bold my-2">Фото жилья</Label>
+    <Carousel orientation="horizontal" opts={{ align: "center", loop: true }} className="w-full">
+      <CarouselContent>
+        {vacancy.homeImageFB.map((image: string, index: number) => (
+          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+            <Image
+              src={image}
+              alt={`Image ${index + 1}`}
+              width={650}
+              height={400}
+              className="flex aspect-4/3 items-center justify-center p-6"
+            />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious type="button" className="ml-5">
+        &lt;
+      </CarouselPrevious>
+      <CarouselNext type="button" className="mr-5">
+        &gt;
+      </CarouselNext>
+    </Carousel>
+  </div>
+)}
+
         </CardContent>
         <CardFooter className="flex flex-col items-start">
           <div className="flex justify-between w-full ">
@@ -132,14 +155,14 @@ export default function DrawerContentComponent({ vacancy }: { vacancy: any }) {
         </CardFooter>
       </Card>
       <DrawerFooter className="grid grid-cols-2 gap-2">
-      <Dialog>
+      <Dialog open={open} onOpenChange={setOpen}>
   <DialogTrigger asChild>
     <Button className="bg-green-800 hover:bg-green-700 text-white transition-all duration-200 ease-in-out">
       Оставить заявку
     </Button>
   </DialogTrigger>
   <DialogContent className="sm:max-w-[425px]">
-  <DialogAnketaContent profession={vacancy?.title} />
+  <DialogAnketaContent vacancy={vacancy} setOpen={setOpen} />
       </DialogContent>
 </Dialog>
 

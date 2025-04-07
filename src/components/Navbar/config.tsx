@@ -1,6 +1,4 @@
 import {
-  
-    Backpack,
     Drill,
     HardHat,
     Hotel,
@@ -36,7 +34,7 @@ import {
       title: "Уличные работы",
       icon: HardHat,
       description: "Брусчатка, строительные леса, каменьщики, арматура-бетон...",
-      href: "/vacancy/urban",
+      href: "/vacancy/outdor",
     },
     {
       title: "Электрика",
@@ -60,29 +58,39 @@ import {
       href: `/userful/`,
     },
     {
-      title: "Hotels",
+      title: "PESEL в Польше",
       icon: Hotel,
       description: "Find the best stays for your trips.",
     },
     {
-      title: "Flights",
-      icon: Plane,
+      title: "Открытие Банковского Счета",
+      icon: Smile,
       description: "Get deals and tips on air travel.",
     },
     {
-      title: "Packing",
+      title: "Документы для получения карты побыта",
       icon: Package,
       description: "Essential checklists for stress-free packing.",
     },
     {
-      title: "Activities",
-      icon: Smile,
+      title: "Билеты по Евросоюзу: Источники",
+      icon: Plane,
       description: "Exciting things to do wherever you go.",
     },
-    {
-      title: "Travel Tips",
-      icon: Backpack,
-      description: "Make every trip smooth and memorable.",
-    },
+    
   ];
   
+  export const partnersMenuItems = [
+    {
+      title: "Партнёрам",
+      icon: Smile,
+      description: "Добавленые вакансии за последний месяц.",
+      href: `/partners/`,
+    },
+    {
+      title: "Рекрутерам",
+      icon: Smile,
+      description: "Добавленые вакансии за последний месяц.",
+      href: `/partners/`,
+    }
+  ]

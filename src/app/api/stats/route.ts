@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server';
+import {  NextResponse } from 'next/server';
 import { connectDB } from '@/lib/db';
 import Vacancies from '@/models/Vacancies';
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   await connectDB();
 
   try {
@@ -15,14 +15,11 @@ export async function GET(req: NextRequest) {
     // Суммирование количества свободных мест
     let place = 0;
     
-    // Логируем выборку вакансий
-    console.log('Выборка вакансий:', vacancies);
 
     vacancies.forEach((vacancy: any) => {
       const vacancyPlace = Number(vacancy.place);
       
-      // Логируем значение места для каждой вакансии
-      console.log(`Место для вакансии ${vacancy._id}:`, vacancyPlace);
+
       
       // Если значение корректное (не NaN), добавляем его к общей сумме
       if (!isNaN(vacancyPlace)) {
@@ -30,10 +27,7 @@ export async function GET(req: NextRequest) {
       }
     });
 
-    // Логируем итоговую сумму свободных мест
-    console.log('Итоговое количество свободных мест:', place);
 
-    // Отправка результата клиенту
     return NextResponse.json({ vacancyCount, place });
 
   } catch (error) {
