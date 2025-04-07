@@ -54,28 +54,32 @@ import {
     {
       title: "Польская рабочая виза",
       icon: MapPin,
-      description: "Discover amazing places to visit.",
-      href: `/userful/`,
+      description: "Как открыть и продлить Визу",
+      href: `/news/66a39ba1bc8f430652eae1c0`,
     },
     {
       title: "PESEL в Польше",
       icon: Hotel,
-      description: "Find the best stays for your trips.",
+      description: "Powszechny Elektroniczny System Ewidencji i Ludności.",
+      href: `/news/66a7591518bfe65908584573`,
     },
     {
       title: "Открытие Банковского Счета",
       icon: Smile,
-      description: "Get deals and tips on air travel.",
+      description: "Польша - страна, которая привлекает граждан СНГ своими богатыми трудовыми...",
+      href: `/news/66a756202e6554808181d42f`,
     },
     {
       title: "Документы для получения карты побыта",
       icon: Package,
-      description: "Essential checklists for stress-free packing.",
+      description: "Прежде чем начать процесс получения карты пребывания в Польше, вам нео...",
+      href: '/news/66a75a29dbd299975c619d1f'
     },
     {
       title: "Билеты по Евросоюзу: Источники",
       icon: Plane,
-      description: "Exciting things to do wherever you go.",
+      description: "Путешествие по Евросоюзу — это увлекательное приключение, но выбор и",
+      href: '/news/66a750cadbd299975c619c25'
     },
     
   ];
