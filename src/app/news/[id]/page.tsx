@@ -3,7 +3,7 @@ import NewsPage from '@/components/News/NewsPage/NewsPage';
 
 
 const getNewsById = async (id: string) => {
-  const url = `http://localhost:3000/api/news/${id}`;
+  const url = `https://etalones.com/api/news/${id}`;
 
   try {
     const res = await fetch(url, {
