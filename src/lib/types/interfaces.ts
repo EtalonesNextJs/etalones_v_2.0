@@ -22,3 +22,8 @@ export interface NewsType {
     category: string;
     description: string;
   }
+
+export interface Profession {
+    name: string;
+    experience: string;
+  }

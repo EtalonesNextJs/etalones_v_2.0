@@ -4,8 +4,12 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { MailIcon, MapPinIcon, MessageCircle, PhoneIcon } from "lucide-react";
+import {  MailIcon, MapPinIcon, MessageCircle, PhoneIcon } from "lucide-react";
 import Link from "next/link";
+import { Telegram } from "../../../public/svg/telegram";
+import { Viber } from "../../../public/svg/viber";
+import { Instagram } from "../../../public/svg/instagram";
+import ContactForm from "../Forms/ContactForm";
 
 const Contacts = () => (
   <div className="min-h-screen flex items-center justify-center py-16">
@@ -38,13 +42,18 @@ const Contacts = () => (
             <div className="h-12 w-12 flex items-center justify-center bg-primary/10 text-primary rounded-full">
               <MessageCircle />
             </div>
-            <h3 className="mt-6 font-semibold text-xl">Живой чат</h3>
+            <h3 className="mt-6 font-semibold text-xl">Мы в соцсетях</h3>
             <p className="my-2.5 text-muted-foreground">
-            Наша дружная команда всегда готова помочь.
+            Будьте всегда в курсе новостей и обновлений.
             </p>
-            <Link className="font-medium text-primary" href="#">
+             <ul className="flex gap-5 justify-center">
+                    <li className=" grayscale  hover:grayscale-0 transition-all duration-200 ease-in-out "><a target='blank' href="https://t.me/VakansiiEtalones"><Telegram width={30} height={30} /></a></li>
+                    <li className=" grayscale  hover:grayscale-0 transition-all duration-200 ease-in-out "><a target='blank' href="https://invite.viber.com/?g2=AQAyInf%2Fn7gYIVEHhdr0DRiL0gFv%2BFU7%2BDoKEQWPv1MfWACpSMOQb%2Fb3UcXL4ZYh" ><Viber width={30} height={30} /></a></li>
+                    <li className=" grayscale  hover:grayscale-0 transition-all duration-200 ease-in-out "><a target='blank' href="https://www.instagram.com/etalones_s_b/" ><Instagram width={30} height={30} /></a></li>
+                    </ul>
+            {/* <Link className="font-medium text-primary" href="#">
              Начать новый чат
-            </Link>
+            </Link> */}
           </div>
           <div>
             <div className="h-12 w-12 flex items-center justify-center bg-primary/10 text-primary rounded-full">
@@ -74,67 +83,13 @@ const Contacts = () => (
               className="font-medium text-primary"
               href="tel:akashmoradiya3444@gmail.com"
             >
-              +48 (555) 000-0000
+              +373 (69) 460-354
             </Link>
           </div>
         </div>
 
         {/* Form */}
-        <Card className="bg-accent shadow-none">
-          <CardContent className="p-6 md:p-10">
-            <form>
-              <div className="grid md:grid-cols-2 gap-x-8 gap-y-5">
-                <div className="col-span-2 sm:col-span-1">
-                  <Label htmlFor="firstName">First Name</Label>
-                  <Input
-                    placeholder="First name"
-                    id="firstName"
-                    className="mt-1.5 bg-white h-11 shadow-none"
-                  />
-                </div>
-                <div className="col-span-2 sm:col-span-1">
-                  <Label htmlFor="lastName">Last Name</Label>
-                  <Input
-                    placeholder="Last name"
-                    id="lastName"
-                    className="mt-1.5 bg-white h-11 shadow-none"
-                  />
-                </div>
-                <div className="col-span-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    type="email"
-                    placeholder="Email"
-                    id="email"
-                    className="mt-1.5 bg-white h-11 shadow-none"
-                  />
-                </div>
-                <div className="col-span-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    placeholder="Message"
-                    className="mt-1.5 bg-white shadow-none"
-                    rows={6}
-                  />
-                </div>
-                <div className="col-span-2 flex items-center gap-2">
-                  <Checkbox id="acceptTerms" />
-                  <Label htmlFor="acceptTerms">
-                    You agree to our{" "}
-                    <Link href="#" className="underline">
-                      terms and conditions
-                    </Link>
-                    .
-                  </Label>
-                </div>
-              </div>
-              <Button className="mt-6 w-full" size="lg">
-                Submit
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
+        <ContactForm />
       </div>
     </div>
   </div>

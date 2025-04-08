@@ -5,8 +5,13 @@ import { BackgroundPattern } from "./background-pattern";
 import { useState, useEffect } from "react";
 import CountUp from "react-countup";
 import Link from "next/link";
+import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "../ui/dialog";
+import ContactForm from "../Forms/ContactForm";
+import { DialogTitle } from "@radix-ui/react-dialog";
+import PrimayForm from "../Forms/PrimaryForm";
 
 const Hero = () => {
+  const [open, setOpen] = useState(false);
    const [vacancyCount, setVacancyCount] = useState<number | null>(null);
     const [totalPositionsAvailable, setTotalPositionsAvailable] = useState<number | null>(null);
   
@@ -26,6 +31,7 @@ const Hero = () => {
     }, []);
   
   return (
+    <Dialog open={open} onOpenChange={setOpen}>
     <div className="min-h-2/3 flex items-center justify-center px-6 " 
     style={{ backgroundImage: 'url(/main/primary_sh.jpg)', backgroundSize: 'cover', backgroundPosition: 'right' }}>
       <BackgroundPattern />
@@ -49,7 +55,7 @@ const Hero = () => {
             Смотреть предложения <ArrowUpRight className="!h-5 !w-5" />
           </Button>
           </Link>
-          
+          <DialogTrigger asChild>
           <Button
             variant="outline"
             size="lg"
@@ -57,9 +63,17 @@ const Hero = () => {
           >
             <PenLine className="!h-5 !w-5" /> Заполнить анкету
           </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogTitle>
+              Анкета работника
+            </DialogTitle>
+            <PrimayForm setOpen={setOpen}/>
+          </DialogContent>
         </div>
       </div>
     </div>
+    </Dialog>
   );
 };
 
