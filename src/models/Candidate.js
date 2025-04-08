@@ -16,6 +16,9 @@ const CandidateSchema = new Schema(
         phone:{
         type: String,
         },
+        email:{
+            type: String,
+            },
         time:{
         type: String,  
         },
