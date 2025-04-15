@@ -41,15 +41,35 @@ export default function VacancyCard( { vacancy }: { vacancy: VacancyType }) {
           <Home className="text-primary" />
         <p>{vacancy?.homePrice}</p>
         </div>
-        <div className="flex items-center gap-2">
+        {vacancy.drivePermis?.length > 0 && <div className="flex items-center gap-2">
         <Car className="text-primary" />
         {vacancy?.drivePermis?.length > 0 && (
-          <><span>Вод удостоверение кат.:</span><p> {vacancy.drivePermis.join('; ')}</p></>
-        )}
-        </div>
+    <p>
+      {vacancy.drivePermis.map((item: string, index: number) => (
+        <span key={index} className="text-sm">
+          - {item}
+          <br />
+        </span>
+      ))}
+    </p>
+
+)}
+        </div>}
         <div className="flex items-start gap-2">
 <FileStack className="text-primary" />
-      {vacancy?.documents?.length > 0 && (
+{vacancy?.documents?.length > 0 && (
+  <p>
+    Документы:
+    {vacancy.documents.map((doc: string, index: number) => (
+      <span key={index} className="text-sm">
+        <br />
+        - {doc}
+      </span>
+    ))}
+  </p>
+)}
+
+      {/* {vacancy?.documents?.length > 0 && (
         <p>
     Документы:{" "}
     {vacancy.documents
@@ -63,7 +83,7 @@ export default function VacancyCard( { vacancy }: { vacancy: VacancyType }) {
         </span>
       ))}
   </p>
-)}
+)} */}
 </div>
 
       </CardContent>

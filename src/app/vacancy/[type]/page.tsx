@@ -3,8 +3,8 @@
 import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import VacancyCard from '@/components/Vacancy/VacancyCard/VacancyCard';
-import { useVacancies } from '@/context/VacancyContext'; // Импортируем контекст
-import { VacancyType } from '@/lib/types/vacancy'; // Импортируем тип VacancyType
+import { useVacancies } from '@/context/VacancyContext'; 
+import { VacancyType } from '@/lib/types/vacancy'; 
 import FormCallBack from '@/components/FormCallBack/FormCallBack';
 import Userfull from '@/components/Userfull/Userfull';
 
