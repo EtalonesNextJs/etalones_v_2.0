@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, ReactNode } from 'react';
 
+// Тип для новости
 interface NewsType {
   _id: string;
   image: { name: string; data: { $binary: { base64: string; subType: string } } };
@@ -13,11 +14,13 @@ interface NewsType {
   updatedAt: string;
 }
 
+// Тип состояния контекста для новостей
 interface NewsState {
   [key: string]: NewsType[] | undefined;
 }
 
-const NewsContext = createContext<{
+// Контекст для новостей
+export const NewsContext = createContext<{
   news: NewsState;
   loadNews: (type: string, newsList: NewsType[]) => void;
 }>({
@@ -25,52 +28,74 @@ const NewsContext = createContext<{
   loadNews: () => {},
 });
 
-export const NewsProvider = ({ children }: { children: ReactNode }) => {
-  const [news, setNews] = useState<NewsState>({});
+// Тип пропсов
+interface Props {
+  children: ReactNode;
+}
 
-  const loadNews = (type: string, newsList: NewsType[]) => {
-    setNews((prev) => ({
-      ...prev,
-      [type]: newsList,
+// Тип состояния
+interface State {
+  news: NewsState;
+}
+
+export class NewsProvider extends React.Component<Props, State> {
+  state: State = {
+    news: {},
+  };
+
+  // Метод загрузки новостей
+  loadNews = (type: string, newsList: NewsType[]) => {
+    this.setState((prevState) => ({
+      news: {
+        ...prevState.news,
+        [type]: newsList,
+      },
     }));
   };
 
-  useEffect(() => {
+  componentDidMount() {
     if (typeof window !== 'undefined') {
       try {
         const cachedNews = localStorage.getItem('news');
         if (cachedNews) {
           const parsed = JSON.parse(cachedNews);
           if (parsed && typeof parsed === 'object') {
-            setNews(parsed);
+            this.setState({ news: parsed });
           }
         }
-      } catch (err) {
-        console.error('Ошибка чтения localStorage для новостей:', err);
+      } catch (error) {
+        console.error('Ошибка чтения localStorage:', error);
       }
     }
-  }, []);
+  }
 
-  useEffect(() => {
+  componentDidUpdate() {
     if (typeof window !== 'undefined') {
       try {
-        if (Object.keys(news).length > 0) {
-          localStorage.setItem('news', JSON.stringify(news));
+        if (Object.keys(this.state.news).length > 0) {
+          localStorage.setItem('news', JSON.stringify(this.state.news));
         }
-      } catch (err) {
-        console.error('Ошибка записи localStorage для новостей:', err);
+      } catch (error) {
+        console.error('Ошибка записи в localStorage:', error);
       }
     }
-  }, [news]);
+  }
 
-  return (
-    <NewsContext.Provider value={{ news, loadNews }}>
-      {children}
-    </NewsContext.Provider>
-  );
-};
+  render() {
+    return (
+      <NewsContext.Provider
+        value={{
+          news: this.state.news,
+          loadNews: this.loadNews,
+        }}
+      >
+        {this.props.children}
+      </NewsContext.Provider>
+    );
+  }
+}
 
-export const useNews = () => useContext(NewsContext);
+export const NewsConsumer = NewsContext.Consumer;
 
 // import React, { createContext, ReactNode } from 'react';
 
