@@ -12,105 +12,104 @@ import { ArrowRight, ArrowUpRight, Blocks, Building2, Calendar, CircleCheck, Cir
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const faq = [
     {
-        question: "What is your return policy?",
+        question: "Где мы находимся?",
         answer:
-            "You can return unused items in their original packaging within 30 days for a refund or exchange. Contact support for assistance.",
+            "Наш офис находится Ulica Henryka Dobrzańskiego „Hubala” 22D, 01-473 Warszawa, Польша. Также у нас открыты рекрутинговые агенства в Украине, Беларуси и Молдове.",
     },
     {
-        question: "How do I track my order?",
+        question: "Стоимость наших услуг?",
         answer:
-            "Track your order using the link provided in your confirmation email, or log into your account to view tracking details.",
+            "Стоимость варируется в зависимости от многих критериев, таких как рабочий график, зарплата работника, стоимости проживания, специальность работника и т.д.",
     },
     {
-        question: "Do you ship internationally?",
+        question: "Кто оплачивает жильё сотрудников?",
         answer:
-            "Yes, we ship worldwide. Shipping fees and delivery times vary by location, and customs duties may apply for some countries.",
+            "По ряду вакансий, наши парнёры предоставляют бесплатное проживание для сотрудников, но в случае аренды жилья (котедж, квартира, хостел) сотрудник оплачивает жильё самостоятельно. Также в случаях высокой стоимости аренды, мы можем разделить сумму и оплачивать её в равных долях(наша компания/партнёр/работник).",
     },
     {
-        question: "What payment methods do you accept?",
+        question: "Граждане каких стран у нас работают?",
         answer:
-            "We accept Visa, MasterCard, American Express, PayPal, Apple Pay, and Google Pay, ensuring secure payment options for all customers.",
+            "Преимущественно у нас работают граждане СНГ(Украина, Молдова, Беларусь). Также к нам обращаются граждане Средней Азии, на сегодняшний день более редкими кандидатами являются граждане Евросоюза",
     },
     {
-        question: "What if I receive a damaged item?",
+        question: "Откуда мы берём кандидатов?",
         answer:
-            "Please contact our support team within 48 hours of delivery with photos of the damaged item. We’ll arrange a replacement or refund.",
+            "Основной массив это провереные нами люди, потвердившие свою квалификацию на наших объектах. Новые кандидаты обрашаются по рекомендациям наших сотрудников(готовые поручится за него), и по рекламе размещёной в сети на тематических сайтах, GoogleADS, Yandex, Facebook, Instagram.",
     },
     {
-        question: "Can I cancel or change my order?",
+        question: "Какие документы предоставляем работнику?",
         answer:
-            "Yes, you can cancel or change your order within 24 hours of placing it. Contact customer support to make updates.",
+            "",
     },
     {
-        question: "Do you offer discounts for bulk purchases?",
+        question: "Разрешение на работу в Германии?",
         answer:
-            "Yes, we provide special discounts for bulk orders. Contact our sales team with your requirements for a customized quote.",
+            "",
     },
     {
-        question: "How long does shipping take?",
+        question: "Какую страховку предоставляем работнику?",
         answer:
-            "Shipping usually takes 3-7 business days domestically and 7-14 business days internationally, depending on your location and selected shipping method.",
+            "",
     },
     {
-        question: "Are your products eco-friendly?",
+        question: "Как быстро мы найдем кандидата?",
         answer:
-            "Many of our products are made with sustainable materials and eco-friendly practices to reduce environmental impact while maintaining quality.",
+            "Поиск кандидата может занять как 5 минут так и 1 месяц, по ряду профессий (брусчадка, сантехника, электрика, штукатурка, малярка) у нас уже работают более 100 человек, и поиск займёт не много времени, но в случае узкопрофилируемых специалистов(гидравлик, оператор башеного крана, сварка алюминия и т.п.) поиск займёт дольше времени. Также на скорость поиска могут влиять запрос специалистов с знанием немецкого, английского языка или уникальные личные требования партнёра.",
     },
     {
-        question: "How can I contact customer support?",
+        question: "Гарантии квалификации работника?",
         answer:
-            "Reach out via email at support@example.com or call us at 1-800-123-4567 for assistance with any inquiries.",
+            "Каждый работник проходит несколько этапов собеседования, в ходе которого мы узнаём о общем опыте работы и опыте работы в Германии,собираем фото выполненых работ, проводим тестирование на проф. пригодность и другое. Мы всегда стараемся отправлять наших провереных сотрудников, но в случе необходимости в быстром поиске привлекаем новых кандидатов ещё не работавших у нас(о чём в обязательном порядке информируем немецкого партнёра).",
     },
 ];
 
 const plans = [
     {
-        name: "Starter",
-        price: 19,
+        name: "Почасовый",
+        price: "от 15",
         description:
-            "Get 20 AI-generated portraits with 2 unique styles and filters.",
+            "Стоимость контракта зависит от специальности, рабочих часов в месяц, стоимости проживания",
         features: [
-            "5 hours turnaround time",
-            "20 AI portraits",
-            "Choice of 2 styles",
-            "Choice of 2 filters",
-            "2 retouch credits",
+            "Разнорабочий 15-16 €/час",
+            "Подмастерье 16-17 €/час",
+            "Мастер 18-20 €/час",
+            "Профессионал 20-23 €/час",
+            "Бригада 18-25 €/час",
         ],
-        buttonText: "Get 20 portraits in 5 hours",
+        buttonText: "Обсудить контракт",
     },
     {
-        name: "Advanced",
-        price: 29,
+        name: "Фиксированый",
+        price: "от 800",
         isRecommended: true,
         description:
-            "Get 50 AI-generated portraits with 5 unique styles and filters.",
+            "Стоимость контракта зависит от рабочего графика, зарплаты работника, стоимости проживания",
         features: [
-            "3 hours turnaround time",
-            "50 AI portraits",
-            "Choice of 5 styles",
-            "Choice of 5 filters",
-            "5 retouch credits",
+            "Менее 180 рабочих час/мес",
+            "Работа на предприятии",
+            "Низкая з/п сотрудника",
+            "Постоянная занятость",
+            "Без контроля часов",
         ],
-        buttonText: "Get 50 portraits in 3 hours",
+        buttonText: "Обсудить контракт",
         isPopular: true,
     },
     {
-        name: "Premium",
-        price: 49,
+        name: "Сдельный",
+        price: "от 25000",
         description:
-            "Get 100 AI-generated portraits with 10 unique styles and filters.",
+            "Объекты на срок от 1 месяца, с фиксированной оплатой за выполненую работу",
         features: [
-            "1-hour turnaround time",
-            "100 AI portraits",
-            "Choice of 10 styles",
-            "Choice of 10 filters",
-            "10 retouch credits",
+            "Смета выполняемых работ",
+            "Работа по объёму",
+            "Заитнересованность работника",
+            "Минимальный контроль",
+            "Только профессионалы",
         ],
-        buttonText: "Get 100 portraits in 1 hour",
+        buttonText: "Предложить контракт",
     },
 ];
 
@@ -129,15 +128,15 @@ const experiences = [
         period: "3-4 рабочих дня",
         description:
             "Подача работника на командировачный лист А1, регистрация предварительного бланка ZUS, в неё мы указываем:",
-        technologies: ["Место работы", "Фирму партнёра", "Сроки командировки", "Docker", "Redis"],
+        technologies: ["Страна делигирования", "Сроки командировки"],
     },
     {
-        title: "Frontend Developer",
-        company: "WebTech Studios",
-        period: "2018 - 2021",
+        title: "Командировачный лист А1",
+        company: "Документы от официальных Польских гос. органов",
+        period: "14-21 рабочих дня",
         description:
-            "Created responsive and interactive user interfaces, collaborated with designers, and optimized application performance.",
-        technologies: ["React", "JavaScript", "SASS", "Webpack", "Jest"],
+            "Мы не можем повлиять на скорость производства документа, скорость зависит от фактической загружености паспортного стола, в А1 будут указаны:",
+        technologies: ["Фирма партнёра", "Адрес командировки",  ],
     },
 ];
 
@@ -403,12 +402,12 @@ const Partners = () => {
             </div>
 
             <div className="min-h-screen flex flex-col items-center justify-center py-12 px-6">
-                <h1 className="text-5xl font-bold text-center tracking-tight">Pricing</h1>
+                <h1 className="text-5xl font-bold text-center tracking-tight">Возможные контракты</h1>
                 <div className="mt-12 max-w-screen-lg mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {plans.map((plan) => (
                         <div key={plan.name} className="border rounded-lg p-6">
                             <h3 className="text-lg font-medium">{plan.name}</h3>
-                            <p className="mt-2 text-4xl font-bold">${plan.price}</p>
+                            <p className="mt-2 text-4xl font-bold">{plan.price}€</p>
                             <p className="mt-4 font-medium text-muted-foreground">
                                 {plan.description}
                             </p>
@@ -435,7 +434,7 @@ const Partners = () => {
             <div className="min-h-screen flex items-center justify-center px-6 py-12">
                 <div className="w-full max-w-screen-lg">
                     <h2 className="text-4xl md:text-5xl !leading-[1.15] font-bold tracking-tight">
-                        Frequently Asked Questions
+                        Часто задаваемые вопросы
                     </h2>
                     <div className="mt-6 w-full grid md:grid-cols-2 gap-x-10">
                         <Accordion
