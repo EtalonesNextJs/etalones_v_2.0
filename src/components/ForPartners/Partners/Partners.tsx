@@ -17,12 +17,12 @@ const faq = [
     {
         question: "Где мы находимся?",
         answer:
-            "Наш офис находится Ulica Henryka Dobrzańskiego „Hubala” 22D, 01-473 Warszawa, Польша. Также у нас открыты рекрутинговые агенства в Украине, Беларуси и Молдове.",
+            "Наш офис находится Ulica Henryka Dobrzańskiego „Hubala” 22D, 01-473 Warszawa, Польша. Также у нас открыты рекрутинговые агентства в Украине, Беларуси и Молдове.",
     },
     {
         question: "Стоимость наших услуг?",
         answer:
-            "Стоимость варируется в зависимости от многих критериев, таких как рабочий график, зарплата работника, стоимости проживания, специальность работника и т.д.",
+            "Стоимость варьируется в зависимости от многих критериев, таких как рабочий график, зарплата работника, стоимость проживания, специальность работника и т.д.",
     },
     {
         question: "Кто оплачивает жильё сотрудников?",
@@ -37,32 +37,32 @@ const faq = [
     {
         question: "Откуда мы берём кандидатов?",
         answer:
-            "Основной массив это провереные нами люди, потвердившие свою квалификацию на наших объектах. Новые кандидаты обрашаются по рекомендациям наших сотрудников(готовые поручится за него), и по рекламе размещёной в сети на тематических сайтах, GoogleADS, Yandex, Facebook, Instagram.",
+            "Основной массив это провереные нами люди, подтвердившие свою квалификацию на наших объектах. Новые кандидаты обращаются по рекомендациям наших сотрудников(готовые поручиться за него), и по рекламе размещённой в сети, на тематических сайтах, GoogleADS, Yandex, Facebook, Instagram.",
     },
     {
         question: "Какие документы предоставляем работнику?",
         answer:
-            "",
+            "Трудовой договор - umowa zlecenie/umowa o pracę, справка о прохождении медицинского осмотра, подтверждение, прохождение первичных инструктажей техники безопасности, страховой полис, US-3, PIT-11, PIT-37, и другие. ",
     },
     {
         question: "Разрешение на работу в Германии?",
         answer:
-            "",
+            "Основным пакетом документов является следующий список:  §48(предоставляет разрешение на осуществление трудовой деятельности на территории Германии) и дополнение §13b(освобождает вас от уплаты налогов за делегированных вам сотрудников), также при необходимости регистрация SOKA-BAU(уличные работы, и другие работы зависящие от погодных условий).",
     },
     {
         question: "Какую страховку предоставляем работнику?",
         answer:
-            "",
+            "Каждый сотрудник отправленый в командировку регистрируется по системе страхования POLISA UBEZPIECZENIA PZU WOJAŻER, данный страховой полис покрывает расходы за полученые травмы во время работы исходя из пунктов указанных в полисе. POLISA UBEZPIECZENIA PZU WOJAŻER действует в медицинских учереждениях по всей территории Евросоюза, в частности Германии. ",
     },
     {
         question: "Как быстро мы найдем кандидата?",
         answer:
-            "Поиск кандидата может занять как 5 минут так и 1 месяц, по ряду профессий (брусчадка, сантехника, электрика, штукатурка, малярка) у нас уже работают более 100 человек, и поиск займёт не много времени, но в случае узкопрофилируемых специалистов(гидравлик, оператор башеного крана, сварка алюминия и т.п.) поиск займёт дольше времени. Также на скорость поиска могут влиять запрос специалистов с знанием немецкого, английского языка или уникальные личные требования партнёра.",
+            "Поиск кандидата может занять как 5 минут так и 1 месяц, по ряду профессий (брусчатка, сантехника, электрика, штукатурка, малярка) у нас уже работают более 100 человек, и поиск займёт не много времени, но в случае узкопрофилируемых специалистов(гидравлик, оператор башенного крана, сварка аллюминия и т.п.) поиск займёт дольше времени. Также на скорость поиска могут влиять запрос специалистов со знанием немецкого, английского языков или уникальные личные требования партнёра.",
     },
     {
         question: "Гарантии квалификации работника?",
         answer:
-            "Каждый работник проходит несколько этапов собеседования, в ходе которого мы узнаём о общем опыте работы и опыте работы в Германии,собираем фото выполненых работ, проводим тестирование на проф. пригодность и другое. Мы всегда стараемся отправлять наших провереных сотрудников, но в случе необходимости в быстром поиске привлекаем новых кандидатов ещё не работавших у нас(о чём в обязательном порядке информируем немецкого партнёра).",
+            "Каждый работник проходит несколько этапов собеседования, в ходе которого мы узнаём его общий опыт работы и опыт работы в Германии или странах Евросоюза,собираем фото выполненых работ, проводим тестирование на проф. пригодность и другое. Мы всегда стараемся отправлять наших провереных сотрудников, но в случе необходимости в быстром поиске привлекаем новых кандидатов ещё не работавших у нас(о чём в обязательном порядке информируем немецкого партнёра).",
     },
 ];
 
@@ -123,16 +123,16 @@ const experiences = [
         technologies: ["Страховка", "Техника безопасности", "Мед. осведетельствоние", "Доп. соглашение"],
     },
     {
-        title: "ZUS",
-        company: "Документы от официальных Польских гос. органов",
+        title: "US-3",
+        company: "Документы от ужонд (Urząd)",
         period: "3-4 рабочих дня",
         description:
-            "Подача работника на командировачный лист А1, регистрация предварительного бланка ZUS, в неё мы указываем:",
+            "Подача работника на командировачный лист А1, регистрация предварительного бланка US-3, в неё мы указываем:",
         technologies: ["Страна делигирования", "Сроки командировки"],
     },
     {
         title: "Командировачный лист А1",
-        company: "Документы от официальных Польских гос. органов",
+        company: "Документы от ужонд (Urząd)",
         period: "14-21 рабочих дня",
         description:
             "Мы не можем повлиять на скорость производства документа, скорость зависит от фактической загружености паспортного стола, в А1 будут указаны:",
@@ -168,7 +168,7 @@ const Partners = () => {
             <div className="min-h-screen  flex items-center justify-center">
                 <div className="w-full max-w-screen-lg mx-auto py-12 px-6">
                     <h2 className="text-3xl leading-10 sm:text-4xl md:text-[40px] md:leading-[3.25rem] font-bold tracking-tight">
-                        Мы предлогаем: <br />
+                        Мы предлагаем: <br />
                         Воспользоваться всеми преимуществами совместной работы
                     </h2>
                     <div className="mt-8 grid sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-3 gap-6">
@@ -181,14 +181,14 @@ const Partners = () => {
                                 />
                             </div>
                             <span className="text-2xl font-semibold tracking-tight">
-                                Поиск специалистов для выполнения поставленых задач
+                                Поиск специалистов для выполнения поставленных задач
                             </span>
                             <ul className="mt-6 space-y-4">
                                 <li>
                                     <div className="flex items-start gap-3">
                                         <Settings2 className="shrink-0" />
                                         <p className="-mt-0.5">
-                                            Сбор подробной информации о предсояшей работе и необходимых сотрудниках
+                                            Сбор подробной информации о предстоящей работе и необходимых сотрудниках
                                         </p>
                                     </div>
                                 </li>
@@ -196,13 +196,13 @@ const Partners = () => {
                                     <div className="flex items-start gap-3">
                                         <Blocks className="shrink-0" />
                                         <p className="-mt-0.5">
-                                            Настройка рекламной компани по привлечению необходимых специалистов
+                                            Настройка рекламной компании по привлечению необходимых специалистов
                                         </p>
                                     </div>
                                 </li>
                             </ul>
                             <Button className="mt-12 w-full">
-                                Ознакомится подробнее <ArrowRight />
+                                Ознакомиться подробнее <ArrowRight />
                             </Button>
                         </div>
                         {/* Media 1 Desktop */}
@@ -248,7 +248,7 @@ const Partners = () => {
                                     <div className="flex items-start gap-3">
                                         <Blocks className="shrink-0" />
                                         <p className="-mt-0.5">
-                                            Подбор максималььно подходящей вакансии, проверка на соответствие требованиям кандидату.
+                                            Подбор максимально подходящей вакансии, проверка на соответствие требованиям кандидату.
                                         </p>
                                     </div>
                                 </li>
@@ -289,7 +289,7 @@ const Partners = () => {
                                 </li>
                             </ul>
                             <Button className="mt-12 w-full">
-                                Ознакомится подробнее <ArrowRight />
+                                Ознакомиться подробнее <ArrowRight />
                             </Button>
                         </div>
                         {/* Media 3 Desktop */}
@@ -326,7 +326,7 @@ const Partners = () => {
                                     <div className="flex items-start gap-3">
                                         <Settings2 className="shrink-0" />
                                         <p className="-mt-0.5">
-                                            Передаём акнету кандидата партнёру,
+                                            Передаём анкету кандидата партнёру,
                                             согласовываем дату и порядок собеседования.
                                         </p>
                                     </div>
@@ -401,7 +401,7 @@ const Partners = () => {
                 </div>
             </div>
 
-            <div className="min-h-screen flex flex-col items-center justify-center py-12 px-6">
+            <div className=" flex flex-col items-center justify-center py-12 px-6">
                 <h1 className="text-5xl font-bold text-center tracking-tight">Возможные контракты</h1>
                 <div className="mt-12 max-w-screen-lg mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {plans.map((plan) => (
@@ -431,7 +431,7 @@ const Partners = () => {
                     ))}
                 </div>
             </div>
-            <div className="min-h-screen flex items-center justify-center px-6 py-12">
+            <div className=" flex items-center justify-center px-6 py-12">
                 <div className="w-full max-w-screen-lg">
                     <h2 className="text-4xl md:text-5xl !leading-[1.15] font-bold tracking-tight">
                         Часто задаваемые вопросы
@@ -479,58 +479,58 @@ const Partners = () => {
                     </div>
                 </div>
             </div>
-            <div className="min-h-screen flex items-center justify-center">
+            <div className=" flex items-center justify-center">
                 <div className="text-center">
-                    <b className="text-muted-foreground">Contact Us</b>
+                    <b className="text-muted-foreground">Наши контакты</b>
                     <h2 className="mt-3 text-2xl md:text-4xl font-bold tracking-tight">
-                        Get In Touch
+                    Связаться
                     </h2>
                     <p className="mt-4 text-base sm:text-lg">
-                        Our friendly team is always here to chat.
+                    Наша дружная команда всегда готова поболтать.
                     </p>
                     <div className="max-w-screen-xl mx-auto py-24 grid md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-10 px-6 md:px-0">
                         <div className="text-center flex flex-col items-center">
                             <div className="h-12 w-12 flex items-center justify-center bg-primary/10 text-primary rounded-full">
                                 <MailIcon />
                             </div>
-                            <h3 className="mt-6 font-semibold text-xl">Email</h3>
+                            <h3 className="mt-6 font-semibold text-xl">Почта</h3>
                             <p className="mt-2 text-muted-foreground">
-                                Our friendly team is here to help.
+                            Наша дружная команда всегда готова вам помочь.
                             </p>
                             <Link
                                 className="mt-4 font-medium text-primary"
                                 href="mailto:akashmoradiya3444@gmail.com"
                             >
-                                akashmoradiya3444@gmail.com
+                                support@etalones.com
                             </Link>
                         </div>
                         <div className="text-center flex flex-col items-center">
                             <div className="h-12 w-12 flex items-center justify-center bg-primary/10 text-primary rounded-full">
                                 <MapPinIcon />
                             </div>
-                            <h3 className="mt-6 font-semibold text-xl">Office</h3>
+                            <h3 className="mt-6 font-semibold text-xl">Офис</h3>
                             <p className="mt-2 text-muted-foreground">
-                                Come say hello at our office HQ.
+                            Приходите поздороваться в наш офис.
                             </p>
                             <Link
                                 className="mt-4 font-medium text-primary"
                                 href="https://map.google.com"
                                 target="_blank"
                             >
-                                100 Smith Street Collingwood <br /> VIC 3066 AU
+                                Ulica Henryka Dobrzańskiego „Hubala” 22D<br />01-473 Warszawa
                             </Link>
                         </div>
                         <div className="text-center flex flex-col items-center">
                             <div className="h-12 w-12 flex items-center justify-center bg-primary/10 text-primary rounded-full">
                                 <PhoneIcon />
                             </div>
-                            <h3 className="mt-6 font-semibold text-xl">Phone</h3>
-                            <p className="mt-2 text-muted-foreground">Mon-Fri from 8am to 5pm.</p>
+                            <h3 className="mt-6 font-semibold text-xl">Телефон</h3>
+                            <p className="mt-2 text-muted-foreground">Пн-Пт с 8:00 до 17:00.</p>
                             <Link
                                 className="mt-4 font-medium text-primary"
                                 href="tel:akashmoradiya3444@gmail.com"
                             >
-                                +1 (555) 000-0000
+                                +373 (69) 460-354
                             </Link>
                         </div>
                     </div>
